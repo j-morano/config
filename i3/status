@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+
+import sys
+import datetime
+import i3ipc
+
+
+
+i3 = i3ipc.Connection()
+num_scratchpad = len(i3.get_tree().scratchpad().leaves())
+
+# By default, print only date
+str_fr_time = '%F'
+end = ' | '
+if len(sys.argv) > 1:
+    if sys.argv[1] == 'time':
+        str_fr_time = '%R'
+        end = ' '
+else:
+    if num_scratchpad > 0:
+        print('Scratchpad:', num_scratchpad, end='')
+
+print(' |', datetime.datetime.now().strftime(str_fr_time), end=end)

@@ -1,0 +1,5 @@
+# Theme for light background
+--theme=GitHub
+
+# Avoid paging
+--paging=never

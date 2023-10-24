@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+
+# Keyboard repeat key speed
+xset r rate 200 40
+
+# Daemons and systray
+/usr/bin/nm-applet &
+/usr/bin/pasystray &
+
+# Screen config
+xrandr \
+    --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
+    --rate 75 \
+    --output HDMI-0 --mode 2560x1440 --rotate right --pos 0x0 \
+    --rate 60
+feh --bg-fill ~/.config/Pictures/iss.jpg &
+
+/usr/local/bin/dwm

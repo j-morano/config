@@ -1,0 +1,317 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+
+font pango:Fira Code 12
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+
+# Home row direction keys, like vim
+set $left ntilde
+set $down j
+set $up k
+set $right l
+
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $run_cmd /home/morano/.config/suckless/run_cmd
+
+gaps inner 8
+smart_gaps on
+
+default_border pixel 6
+default_floating_border pixel 6
+
+# Bottom screen gap
+# gaps bottom 12
+
+# Default layout to tabbed
+workspace_layout tabbed
+
+for_window [class=".*"] border pixel 6
+
+
+# Set tabbed mode as default
+# workspace_layout tabbed
+# exec_always --no-startup-id /home/morano/.config/i3/autotiling.py
+
+
+# Keyboard repeat key speed
+exec --no-startup-id $run_cmd reset_kb_settings
+# exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
+exec --no-startup-id /usr/bin/nm-applet
+exec --no-startup-id /usr/bin/pasystray
+exec --no-startup-id feh --bg-fill ~/.config/Pictures/iss.jpg
+exec --no-startup-id --no-startup-id xrandr \
+    --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
+    --rate 75 \
+    --output HDMI-0 --mode 2560x1440 --rotate right --pos 0x0 \
+    --rate 60
+
+
+# Promote window
+bindsym $mod+$alt+i exec --no-startup-id "~/.config/i3/promote_window.py promote"
+bindsym $mod+i exec --no-startup-id "~/.config/i3/promote_window.py focus"
+bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last"
+bindsym $mod+j exec --no-startup-id "~/.config/i3/promote_window.py next"
+bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
+# bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
+# bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-container"
+
+### Output configuration
+#
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec --no-startup-id $run_cmd terminal
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+c exec --no-startup-id $run_cmd launcher
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod
+
+    # Reload the configuration file
+    bindsym $mod+$alt+BackSpace restart
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+$alt+Shift+BackSpace exit
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+ntilde focus left
+    bindsym $mod+Shift+j focus down
+    bindsym $mod+Shift+k focus up
+    bindsym $mod+l focus right
+
+    # Move the focused window with the same, but add $alt
+    bindsym $mod+$alt+$left move left
+    bindsym $mod+$alt+$down move down
+    bindsym $mod+$alt+$up move up
+    bindsym $mod+$alt+$right move right
+#
+# Workspaces:
+#
+    workspace "11:x" output HDMI-0
+
+    set $1 "1:1"
+    set $2 "2:2"
+    set $3 "3:3"
+    set $4 "4:4"
+    set $5 "5:5"
+    set $6 "6:6"
+    set $7 "7:7"
+    set $8 "8:8"
+    set $9 "9:9"
+    set $0 "10:0"
+    set $x "11:x"
+    set $n "12:n"
+    set $m "13:m"
+    set $c "14:,"
+    set $p "15::"
+
+    # Switch to workspace
+    bindsym $mod+1 workspace $1
+    bindsym $mod+2 workspace $2
+    bindsym $mod+3 workspace $3
+    bindsym $mod+4 workspace $4
+    bindsym $mod+5 workspace $5
+    bindsym $mod+6 workspace $6
+    bindsym $mod+7 workspace $7
+    bindsym $mod+8 workspace $8
+    bindsym $mod+9 workspace $9
+    bindsym $mod+0 workspace $0
+    bindsym $mod+n workspace $n
+    bindsym $mod+m workspace $m
+    bindsym $mod+comma workspace $c
+    bindsym $mod+period workspace $p
+    bindsym $mod+x workspace $x
+    # Move focused container to workspace
+    bindsym $mod+$alt+1 move container to workspace $1
+    bindsym $mod+$alt+2 move container to workspace $2
+    bindsym $mod+$alt+3 move container to workspace $3
+    bindsym $mod+$alt+4 move container to workspace $4
+    bindsym $mod+$alt+5 move container to workspace $5
+    bindsym $mod+$alt+6 move container to workspace $6
+    bindsym $mod+$alt+7 move container to workspace $7
+    bindsym $mod+$alt+8 move container to workspace $8
+    bindsym $mod+$alt+9 move container to workspace $9
+    bindsym $mod+$alt+0 move container to workspace $0
+    bindsym $mod+$alt+n move container to workspace $n
+    bindsym $mod+$alt+m move container to workspace $m
+    bindsym $mod+$alt+comma move container to workspace $c
+    bindsym $mod+$alt+period move container to workspace $p
+    bindsym $mod+$alt+x move container to workspace $x
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+    bindsym $mod+space workspace back_and_forth
+
+# Mouse
+    bindsym button3 kill
+
+# Automatic back-and-forth when switching to the current workspace
+workspace_auto_back_and_forth yes
+
+
+# Move between monitors
+bindsym $mod+o focus output left
+bindsym $mod+$alt+o move output left, focus output left
+
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id $run_cmd volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id $run_cmd volume_down
+bindsym XF86AudioMute exec --no-startup-id $run_cmd volume_mute
+bindsym XF86AudioMicMute exec --no-startup-id $run_cmd mic_mute
+# Volume custom shortcuts
+bindsym $mod+minus exec --no-startup-id $run_cmd volume_down
+bindsym $mod+plus exec --no-startup-id $run_cmd volume_up
+
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout toggle stacking split
+    bindsym $mod+w layout toggle tabbed split
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+b floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+$alt+b focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+    # focus the child container
+    bindsym $mod+z focus child
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+$alt+d move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+d scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 16px
+    bindsym $down resize grow height 16px
+    bindsym $up resize shrink height 16px
+    bindsym $right resize grow width 16px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 16px
+    bindsym Down resize grow height 16px
+    bindsym Up resize shrink height 16px
+    bindsym Right resize grow width 16px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+focus_follows_mouse yes
+
+focus_wrapping workspace
+
+
+bindsym $mod+$alt+q exec --no-startup-id $run_cmd lock
+
+# File manager
+bindsym $mod+dead_grave exec --no-startup-id $run_cmd file_manager
+bindsym $mod+$alt+dead_grave exec --no-startup-id $run_cmd terminal_file_manager
+# Web browser
+bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
+
+bindsym $mod+apostrophe exec --no-startup-id $run_cmd reset_kb_settings
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    status_command while ~/.config/i3/status; do sleep 1; done
+    position bottom
+    tray_output primary
+    strip_workspace_numbers yes
+    modifier none
+}
+
+bindsym $mod+u exec --no-startup-id notify-send -t 2000 "$(date)"
+
+# Hide bar
+bindsym $mod+t bar mode toggle
+
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #c2a3ff   #a3cbff
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #ed93d4 #ffffff #ed93d4   #ed93d4
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+

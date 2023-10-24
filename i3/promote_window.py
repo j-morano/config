@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+
+"""
+This script has different modes:
+    - "promote": Promotes the focused window by swapping it with the
+        master window (the leftmost window).
+    - "focus": Focuses the leftmost window. If the leftmost window is
+        already focused, then focuses the window to the right of
+        the leftmost window.
+    - "next": if the layout is tabbed, then focuses the next window.
+        Otherwise, focuses the window below the focused window.
+    - "prev": if the layout is tabbed, then focuses the previous window.
+        Otherwise, focuses the window above the focused window.
+    - "last": Focuses the last window.
+
+Copyright: 2023 José Morano
+License: MIT
+
+Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
+"""
+
+import sys
+import os
+
+from i3ipc import Connection, Con
+
+
+
+def find_master(container, mark):
+    master = None
+    second = None
+    previous = None
+    focused = None
+    for leaf in container.leaves():
+        if not master:
+            master = leaf
+        elif master and not second:
+            second = leaf
+        if leaf.focused:
+            focused = leaf
+        if mark in leaf.marks:
+            previous = leaf
+    if not previous:
+        previous = second
+    return master, focused, previous
+
+
+option = sys.argv[1]
+
+i3 = Connection()
+
+root = i3.get_tree()
+focused = root.find_focused()
+assert focused is not None
+workspace = focused.workspace()
+assert isinstance(workspace, Con)
+layout = focused.parent.layout
+
+
+if option == 'next' or option == 'prev':
+    # os.system("notify-send 'next'")
+    focus_next_leaf = False
+    if option == 'prev':
+        leaves = reversed(workspace.leaves())
+    else:
+        leaves = workspace.leaves()
+    current_container_leaves = []
+    for leaf in leaves:
+        if focused.parent == leaf.parent:
+            current_container_leaves.append(leaf)
+    for leaf in current_container_leaves:
+        # os.system(f"notify-send 'len {len(workspace.leaves())}'")
+        if focus_next_leaf and focused.parent == leaf.parent:
+            leaf.command("focus")
+            exit(0)
+        if leaf.focused:  #type: ignore
+            focus_next_leaf = True
+    current_container_leaves[0].command("focus")
+else:
+    prev_mark = workspace.name  # type: ignore
+    master, focused, previous = find_master(workspace, prev_mark)
+    assert master is not None and focused is not None and previous is not None
+    if previous.id == focused.id == master.id:
+        i3.command(f"focus right")
+    elif focused.id == master.id:
+        # Focus the previous window (the one with 'p' mark),
+        #   to replace master window with it.
+        i3.command(f"[con_id=\"{previous.id}\"] focus")
+    if option == "promote":
+        # Mark master window as previous ('p'), since it will be
+        #   replaced.
+        i3.command(f"[con_id=\"{master.id}\"] mark {prev_mark}")
+        i3.command(f"swap container with con_id {master.id}")
+    elif option == "focus":
+        if focused.id == master.id:
+            # Mark master window as previous.
+            i3.command(f"[con_id=\"{master.id}\"] mark {prev_mark}")
+        else:
+            # Mark focused window as previous and focus master.
+            i3.command(f"[con_id=\"{focused.id}\"] mark {prev_mark}")
+            i3.command(f"[con_id=\"{master.id}\"] focus")
+    elif option == "last":
+        # Focus previous window
+        i3.command(f"[con_id=\"{previous.id}\"] focus")
+        # Mark focused window as previous
+        i3.command(f"[con_id=\"{focused.id}\"] mark {prev_mark}")
