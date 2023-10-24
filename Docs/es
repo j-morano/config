@@ -1,6 +1,6 @@
 // Modified for a real Spanish keyboard by Jon Tombs.
-// Custom mappings by José Morano.
 // /usr/share/X11/xkb/symbols/es
+// Custom mappings by José Morano.
 
 // Toggle CapsLock when pressed together with the other Shift key.
 partial modifier_keys

@@ -10,9 +10,9 @@
 !suckless/**
 !Docs/**
 !i3/**
+!sway/**
+!waybar/**
 !Scripts/**
-!gtk-*/**
-!nautilus/**
 !nvim
 !vim/**
 !fish/**

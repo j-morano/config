@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 case $1 in
     volume_up)
@@ -7,44 +7,34 @@ case $1 in
     volume_down)
         pactl set-sink-volume @DEFAULT_SINK@ -2%
         ;;
-    volume_mute)
-        pactl set-sink-mute @DEFAULT_SINK@ toggle
-        ;;
-    mic_mute)
-        pactl set-source-mute @DEFAULT_SOURCE@ toggle
-        ;;
     launcher)
-        j4-dmenu-desktop --dmenu "dmenu -i -fn 'Fira Code-14'"
+        j4-dmenu-desktop --dmenu "bemenu -i --fn 'FiraCode 12'"
         ;;
     web_browser)
         firefox --new-window
         ;;
     file_manager)
-        if [ -d "/run/media/morano/SW1000/" ]
-        then
-            nautilus --new-window /run/media/morano/SW1000/
-        else
-            nautilus --new-window /home/morano/
-        fi
+        nautilus --new-window
         ;;
     terminal_file_manager)
-        if [ -d "/run/media/morano/SW1000/" ]
-        then
-            wezterm -e ranger /run/media/morano/SW1000/
-        else
-            wezterm -e ranger /home/morano/
-        fi
-        ;;
-    date)
-        notify-send -t 2000 "$(date)"
+        wezterm start -- ranger
         ;;
     terminal)
         wezterm
         ;;
     lock)
-        i3lock -c 333333
+        swaylock --color=333333
         ;;
     reset_kb_settings)
         xset r rate 200 40
+        ;;
+    extra_1)
+        /home/morano/.config/Scripts/screen.sh laptop
+        ;;
+    extra_2)
+        /home/morano/.config/Scripts/screen.sh external
+        ;;
+    extra_3)
+        /home/morano/.config/Scripts/screen.sh extend
         ;;
 esac
