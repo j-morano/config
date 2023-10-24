@@ -1,9 +1,9 @@
 # .config
 
-* Terminal: Kitty
+* Terminal: wezterm
 * Shell: fish shell
-* Text editor: Neovim
+* Text editor: neovim
 * File manager: ranger
-* Window managers: i3 and Qtile
+* Window managers: sway
 * Notification daemon: dunst
 
