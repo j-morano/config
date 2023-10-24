@@ -15,4 +15,5 @@ set PATH $HOME/.local/bin $PATH
 # Set locale to avoid issues with some non-ascii chars
 set -gx  LC_ALL en_US.UTF-8
 
+# Do not use Kitty's particular TERM variable to avoid problems, e.g. in ssh
 set TERM xterm-256color

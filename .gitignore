@@ -11,6 +11,8 @@
 !Docs/**
 !i3/**
 !sway/**
+!gtk-*/**
+!nautilus/**
 !waybar/**
 !Scripts/**
 !nvim

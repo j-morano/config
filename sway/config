@@ -6,7 +6,7 @@
 
 ### Variables
 
-font pango:Fira Code 12
+font pango:Fira Code 11
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -36,18 +36,21 @@ exec ~/.config/Scripts/battery_alert.sh
 exec /usr/bin/nm-applet --indicator
 
 # Promote window
-bindsym $mod+$alt+i exec "~/.config/sway/promote_window.py promote"
-bindsym $mod+i exec "~/.config/sway/promote_window.py focus"
-bindsym $mod+p exec "~/.config/sway/promote_window.py last"
-bindsym $mod+$down exec "~/.config/sway/promote_window.py next"
-bindsym $mod+$up exec "~/.config/sway/promote_window.py prev"
+bindsym $mod+$alt+i exec --no-startup-id "~/.config/sway/promote_window.py promote"
+bindsym $mod+i exec --no-startup-id "~/.config/sway/promote_window.py focus"
+bindsym $mod+p exec --no-startup-id "~/.config/sway/promote_window.py last"
+bindsym $mod+j exec --no-startup-id "~/.config/sway/promote_window.py next"
+bindsym $mod+k exec --no-startup-id "~/.config/sway/promote_window.py prev"
+bindsym $mod+l exec --no-startup-id "~/.config/sway/promote_window.py next-container"
+bindsym $mod+ntilde exec --no-startup-id "~/.config/sway/promote_window.py prev-container"
 # Ensure that we are at the second level when doing focus left
 # bindsym $mod+i focus parent, focus parent, focus parent, focus child, focus left
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.config/Pictures/cfa.png fill
+output eDP-1 scale 1.2
+output * bg ~/.config/Pictures/iss.jpg fill
 #
 # Example configuration:
 #
@@ -116,10 +119,10 @@ input type:touchpad {
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
+    bindsym $mod+Shift+$left focus left
     bindsym $mod+Shift+$down focus down
     bindsym $mod+Shift+$up focus up
-    bindsym $mod+$right focus right
+    bindsym $mod+Shift+$right focus right
 
     # Move the focused window with the same, but add $alt
     bindsym $mod+$alt+$left move left
@@ -143,6 +146,8 @@ input type:touchpad {
     bindsym $mod+x workspace x
     bindsym $mod+n workspace n
     bindsym $mod+m workspace m
+    bindsym $mod+comma workspace ","
+    bindsym $mod+period workspace ":"
     # Move focused container to workspace
     bindsym $mod+$alt+1 move container to workspace number 1
     bindsym $mod+$alt+2 move container to workspace number 2
@@ -157,6 +162,8 @@ input type:touchpad {
     bindsym $mod+$alt+x move container to workspace x
     bindsym $mod+$alt+n move container to workspace n
     bindsym $mod+$alt+m move container to workspace m
+    bindsym $mod+$alt+comma move container to workspace ","
+    bindsym $mod+$alt+period move container to workspace ":"
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
     # Worspace back and forth
@@ -183,13 +190,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Volume custom shortcuts
 bindsym $mod+minus exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym $mod+plus exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
-
-
-# Display management
-bindsym $mod+period exec wlr-randr --output eDP-1 --off --output HDMI-A-2 --preferred --on
-bindsym $mod+comma exec wlr-randr --output eDP-1 --preferred --on --output HDMI-A-2 --off
-bindsym $mod+$alt+period exec wlr-randr --output eDP-1 --preferred --on --output HDMI-A-2 --on
-bindsym $mod+$alt+comma exec wlr-randr --output eDP-1 --preferred --on
 
 #
 # Layout stuff:
@@ -266,7 +266,7 @@ bindsym $mod+Shift+q exec swaylock --color=333333
 # File manager
 bindsym $mod+dead_grave exec nautilus --new-window
 # Web browser
-bindsym $mod+dead_acute exec firefox --new-window
+bindsym $mod+dead_acute exec firefox
 
 #
 # Status Bar:
@@ -287,7 +287,7 @@ bar {
     }
 }
 
-bindsym $mod+u exec --no-startup-id killall -SIGUSR1 waybar
+bindsym $mod+u exec killall -SIGUSR1 waybar
 
 bindsym $mod+apostrophe exec --no-startup-id notify-send -t 2000 "$(date)"
 

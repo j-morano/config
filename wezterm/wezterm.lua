@@ -4,6 +4,46 @@ local wezterm = require 'wezterm'
 -- scheme.background = '#e1e2e7'
 -- scheme.selection_bg = '#d0d0d0'
 
+
+local function recompute_padding(window)
+  local window_dims = window:get_dimensions();
+  local overrides = window:get_config_overrides() or {}
+
+  if window_dims.pixel_width < 1500 then
+    if not overrides.window_padding then
+      -- not changing anything
+      return;
+    end
+    overrides.window_padding = nil;
+  else
+    -- Use only the middle 33%
+    local pad = math.floor(window_dims.pixel_width / 6)
+    local new_padding = {
+      left = pad,
+      right = pad,
+      top = 0,
+      bottom = 0
+    };
+    if overrides.window_padding and new_padding.left == overrides.window_padding.left then
+      -- padding is same, avoid triggering further changes
+      return
+    end
+    overrides.window_padding = new_padding
+    -- Apply different colors to the padding area
+  end
+  window:set_config_overrides(overrides)
+end
+
+wezterm.on("window-resized", function(window, _)
+  recompute_padding(window)
+end);
+
+wezterm.on("window-config-reloaded", function(window)
+  recompute_padding(window)
+end);
+
+
+
 local colors = {
   -- The default text color
   foreground = 'black',
@@ -121,8 +161,8 @@ return {
       font=wezterm.font("Fira Code", {bold=false, italic=false}),
     },
   },
-  line_height = 1,
-  font_size = 12,
+  line_height = 1.15,
+  font_size = 13.0,
   disable_default_key_bindings = true,
   colors = colors,
   keys = {
@@ -157,13 +197,11 @@ return {
   --   ['AtomOneLight'] = scheme,
   -- },
   custom_block_glyphs = false,
-  cursor_thickness = 3,
+  cursor_thickness = 2,
   -- color_scheme = "AtomOneLight",
   force_reverse_video_cursor = false,
   hide_tab_bar_if_only_one_tab = true,
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  front_end = "OpenGL",
-  freetype_render_target = 'HorizontalLcd',
 }
