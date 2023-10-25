@@ -23,7 +23,7 @@ set $right l
 set $run_cmd /home/morano/.config/suckless/run_cmd
 
 gaps inner 8
-smart_gaps on
+# smart_gaps on
 
 default_border pixel 6
 default_floating_border pixel 6
@@ -37,17 +37,12 @@ workspace_layout tabbed
 for_window [class=".*"] border pixel 6
 
 
-# Set tabbed mode as default
-# workspace_layout tabbed
-# exec_always --no-startup-id /home/morano/.config/i3/autotiling.py
-
-
 # Keyboard repeat key speed
 exec --no-startup-id $run_cmd reset_kb_settings
 # exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
-exec --no-startup-id feh --bg-fill ~/.config/Pictures/iss.jpg
+exec --no-startup-id feh --bg-fill ~/.config/Pictures/2ee.jpg
 exec --no-startup-id --no-startup-id xrandr \
     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
     --rate 75 \
