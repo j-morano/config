@@ -12,6 +12,7 @@
 !i3/**
 !Scripts/**
 !gtk-*/**
+gtk-3.0/bookmarks
 !nautilus/**
 !nvim
 !vim/**
