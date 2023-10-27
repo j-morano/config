@@ -280,7 +280,7 @@ bindsym $mod+$alt+dead_grave exec --no-startup-id $run_cmd terminal_file_manager
 # Web browser
 bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
 
-bindsym $mod+apostrophe exec --no-startup-id $run_cmd reset_kb_settings
+bindsym $mod+u exec --no-startup-id $run_cmd reset_kb_settings
 
 #
 # Status Bar:
@@ -294,7 +294,7 @@ bar {
     modifier none
 }
 
-bindsym $mod+u exec --no-startup-id notify-send -t 2000 "$(date)"
+bindsym $mod+apostrophe exec --no-startup-id notify-send -t 2000 "$(date)"
 
 # Hide bar
 bindsym $mod+t bar mode toggle
