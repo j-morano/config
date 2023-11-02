@@ -204,12 +204,26 @@ return {
       mods = 'CTRL|SHIFT',
       action = wezterm.action { PasteFrom="Clipboard" },
     },
-    {
+    { -- Disable padding
       key = 'f',
       mods = 'ALT',
-      -- disable padding
       action = wezterm.action_callback(disable_padding),
     },
+    { -- Increase font size
+      key = '+',
+      mods = 'CTRL',
+      action = wezterm.action.IncreaseFontSize,
+    },
+    { -- Decrease font size
+      key = '-',
+      mods = 'CTRL',
+      action = wezterm.action.DecreaseFontSize,
+    },
+    { -- Reset font size
+      key = '0',
+      mods = 'CTRL',
+      action = wezterm.action.ResetFontSize,
+    }
   },
   -- color_schemes = {
   --   -- Override the builtin Gruvbox Light scheme with our modification.
