@@ -16,3 +16,5 @@ set PATH $HOME/.local/bin $PATH
 set -gx  LC_ALL en_US.UTF-8
 
 set TERM xterm-256color
+
+set IPYTHONDIR $HOME/.config/ipython
