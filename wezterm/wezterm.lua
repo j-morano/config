@@ -8,6 +8,10 @@ local wezterm = require 'wezterm'
 local function recompute_padding(window)
   local window_dims = window:get_dimensions();
   local overrides = window:get_config_overrides() or {}
+  -- Check if overrides.window_padding_enabled is set
+  if overrides.window_padding_enabled == nil then
+    overrides.window_padding_enabled = true
+  end
 
   if window_dims.pixel_width < 1500 then
     if not overrides.window_padding then
@@ -17,7 +21,10 @@ local function recompute_padding(window)
     overrides.window_padding = nil;
   else
     -- Use only the middle 33%
-    local pad = math.floor(window_dims.pixel_width / 6)
+    local pad = 8  -- minimum padding
+    if overrides.window_padding_enabled then
+      pad = math.floor(window_dims.pixel_width / 6)
+    end
     local new_padding = {
       left = pad,
       right = pad,
@@ -42,6 +49,12 @@ wezterm.on("window-config-reloaded", function(window)
   recompute_padding(window)
 end);
 
+
+local function disable_padding(window)
+  local overrides = window:get_config_overrides() or {}
+  overrides.window_padding_enabled = not overrides.window_padding_enabled
+  window:set_config_overrides(overrides)
+end
 
 
 local colors = {
@@ -190,6 +203,12 @@ return {
       key = 'v',
       mods = 'CTRL|SHIFT',
       action = wezterm.action { PasteFrom="Clipboard" },
+    },
+    {
+      key = 'f',
+      mods = 'ALT',
+      -- disable padding
+      action = wezterm.action_callback(disable_padding),
     },
   },
   -- color_schemes = {
