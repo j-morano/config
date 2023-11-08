@@ -294,6 +294,7 @@ bar {
     modifier none
 }
 
+bindsym $mod+$alt+apostrophe exec --no-startup-id ~/.config/i3/status --toggle
 bindsym $mod+apostrophe exec --no-startup-id notify-send -t 2000 "$(date)"
 
 # Hide bar
