@@ -1,4 +1,3 @@
-nnoremap s :update<CR>
 noremap ñ h
 noremap Ñ :
 nnoremap qÑ q:
