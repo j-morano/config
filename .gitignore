@@ -21,6 +21,8 @@ gtk-2.0/gtkfilechooser.ini
 !ipython/profile_default/startup/keybindings.py
 !fish/**
 fish/functions/**
+!fish/functions/fish_prompt.fish
+!fish/functions/fish_user_key_bindings.fish
 !Commands/**
 !*/
 __pycache__/
