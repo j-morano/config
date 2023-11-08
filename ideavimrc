@@ -1,0 +1,8 @@
+nnoremap s :update<CR>
+noremap ñ h
+noremap Ñ :
+nnoremap qÑ q:
+nnoremap @Ñ @:
+nnoremap <C-w>ñ <C-w>h
+vnoremap p pgvy
+noremap c "_c
