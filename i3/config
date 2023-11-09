@@ -20,7 +20,7 @@ set $right l
 
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $run_cmd /home/morano/.config/suckless/run_cmd
+set $run_cmd $HOME/.config/suckless/run_cmd
 
 gaps inner 8
 # smart_gaps on

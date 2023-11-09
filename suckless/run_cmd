@@ -22,17 +22,17 @@ case $1 in
     file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            nautilus --new-window /run/media/morano/SW1000/
+            nautilus --new-window /run/media/$USERNAME/SW1000/
         else
-            nautilus --new-window /home/morano/
+            nautilus --new-window $HOME
         fi
         ;;
     terminal_file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            wezterm -e ranger /run/media/morano/SW1000/
+            wezterm -e ranger /run/media/$USERNAME/SW1000/
         else
-            wezterm -e ranger /home/morano/
+            wezterm -e ranger $HOME
         fi
         ;;
     date)
