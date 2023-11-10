@@ -1,0 +1,11 @@
+set clipboard+=unnamedplus
+noremap s <nop>
+noremap ñ h
+noremap Ñ :
+nnoremap qÑ q:
+nnoremap @Ñ @:
+nnoremap <C-w>ñ <C-w>h
+noremap c "_c
+inoremap <C-l> <right>
+inoremap <M-7> \
+xnoremap p pgvy
