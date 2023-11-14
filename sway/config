@@ -287,7 +287,7 @@ bar {
     }
 }
 
-bindsym $mod+u exec killall -SIGUSR1 waybar
+bindsym $mod+t exec killall -SIGUSR1 waybar
 
 bindsym $mod+apostrophe exec --no-startup-id notify-send -t 2000 "$(date)"
 
