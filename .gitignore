@@ -12,6 +12,7 @@
 !i3/**
 !sway/**
 !gtk-*/**
+gtk-3.0/bookmarks
 !nautilus/**
 !waybar/**
 !Scripts/**

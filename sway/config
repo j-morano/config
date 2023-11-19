@@ -41,8 +41,8 @@ bindsym $mod+i exec --no-startup-id "~/.config/sway/promote_window.py focus"
 bindsym $mod+p exec --no-startup-id "~/.config/sway/promote_window.py last"
 bindsym $mod+j exec --no-startup-id "~/.config/sway/promote_window.py next"
 bindsym $mod+k exec --no-startup-id "~/.config/sway/promote_window.py prev"
-bindsym $mod+l exec --no-startup-id "~/.config/sway/promote_window.py next-container"
-bindsym $mod+ntilde exec --no-startup-id "~/.config/sway/promote_window.py prev-container"
+# bindsym $mod+l exec --no-startup-id "~/.config/sway/promote_window.py next-container"
+# bindsym $mod+ntilde exec --no-startup-id "~/.config/sway/promote_window.py prev-container"
 # Ensure that we are at the second level when doing focus left
 # bindsym $mod+i focus parent, focus parent, focus parent, focus child, focus left
 
@@ -119,10 +119,10 @@ input type:touchpad {
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+Shift+$left focus left
+    bindsym $mod+$left focus left
     bindsym $mod+Shift+$down focus down
     bindsym $mod+Shift+$up focus up
-    bindsym $mod+Shift+$right focus right
+    bindsym $mod+$right focus right
 
     # Move the focused window with the same, but add $alt
     bindsym $mod+$alt+$left move left
