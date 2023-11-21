@@ -256,12 +256,33 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+#
+# exit mode
+#
+
+set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+mode $exit {
+    bindsym {
+        s exec swaylock --daemonize && systemctl suspend, mode "default"
+        p exec systemctl poweroff
+        r exec systemctl reboot
+        l exec swaymsg exit
+
+        q mode "default"
+        Escape mode "default"
+        $mod+$alt+e mode "default"
+    }
+}
+
+bindsym --to-code $mod+$alt+e mode $exit
+
+
 focus_follows_mouse yes
 
 focus_wrapping workspace
 
 
-bindsym $mod+Shift+q exec swaylock --color=333333
+bindsym $mod+Shift+q exec swaylock
 
 # File manager
 bindsym $mod+dead_grave exec nautilus --new-window
