@@ -300,6 +300,9 @@ bindsym $mod+apostrophe exec --no-startup-id notify-send -t 2000 "$(date)"
 # Hide bar
 bindsym $mod+t bar mode toggle
 
+# Sticky windows
+bindsym $mod+$alt+s sticky toggle
+
 
 # Colors
 # class                 border  backgr. text    indicator child_border
