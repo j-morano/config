@@ -22,9 +22,9 @@ case $1 in
     file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            thunar /run/media/$USERNAME/SW1000/
+            dolphin --new-window /run/media/$USERNAME/SW1000/
         else
-            thunar $HOME
+            dolphin --new-window $HOME
         fi
         ;;
     terminal_file_manager)
