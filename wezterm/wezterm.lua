@@ -175,7 +175,7 @@ return {
     },
   },
   line_height = 1.15,
-  font_size = 11.5,
+  font_size = 12,
   disable_default_key_bindings = true,
   colors = colors,
   keys = {
