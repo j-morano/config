@@ -136,7 +136,7 @@ local colors = {
 
 
 return {
-  font = wezterm.font 'Fira Code Retina',
+  font = wezterm.font 'Fira Code',
   font_rules = {
     -- For Bold-but-not-italic text, use this relatively bold font, and override
     -- its color to a tomato-red color to make bold text really stand out.
@@ -237,4 +237,5 @@ return {
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+  front_end = "OpenGL",
 }
