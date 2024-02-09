@@ -11,7 +11,6 @@ This script has different modes:
         Otherwise, focuses the window below the focused window.
     - "prev": if the layout is tabbed, then focuses the previous window.
         Otherwise, focuses the window above the focused window.
-    - "last": Focuses the last window.
 
 Copyright: 2023 José Morano
 License: MIT
@@ -20,7 +19,7 @@ Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
 """
 
 import sys
-import os
+# import os
 
 from i3ipc import Connection, Con
 
@@ -99,8 +98,3 @@ else:
             # Mark focused window as previous and focus master.
             i3.command(f"[con_id=\"{focused.id}\"] mark {prev_mark}")
             i3.command(f"[con_id=\"{master.id}\"] focus")
-    elif option == "last":
-        # Focus previous window
-        i3.command(f"[con_id=\"{previous.id}\"] focus")
-        # Mark focused window as previous
-        i3.command(f"[con_id=\"{focused.id}\"] mark {prev_mark}")

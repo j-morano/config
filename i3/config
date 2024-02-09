@@ -53,7 +53,6 @@ exec --no-startup-id --no-startup-id xrandr \
 # Promote window
 bindsym $mod+$alt+i exec --no-startup-id "~/.config/i3/promote_window.py promote"
 bindsym $mod+i exec --no-startup-id "~/.config/i3/promote_window.py focus"
-bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last"
 bindsym $mod+j exec --no-startup-id "~/.config/i3/promote_window.py next"
 bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
 # bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
