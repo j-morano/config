@@ -19,7 +19,7 @@ Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
 """
 
 import sys
-# import os
+import os
 
 from i3ipc import Connection, Con
 
@@ -75,6 +75,29 @@ if option == 'next' or option == 'prev':
         if leaf.focused:  #type: ignore
             focus_next_leaf = True
     current_container_leaves[0].command("focus")
+elif option == 'next-container' or option == 'prev-container':
+    containers = []
+    for leaf in workspace.leaves():
+        if leaf.parent not in containers:
+            containers.append(leaf.parent)
+    if len(containers) < 2:
+        if option == 'next-container':
+            i3.command(f"focus right")
+        else:
+            i3.command(f"focus left")
+    else:
+        focus_next_container = False
+        assert isinstance(containers, list)
+        focused_index = 0
+        for focused_index, container in enumerate(containers):
+            if focused.parent == container:
+                break
+        if option == 'next-container':
+            target_index = (focused_index + 1) % len(containers)
+        else:
+            target_index = (focused_index - 1) % len(containers)
+        containers[target_index].command("focus")
+        i3.command("focus child")
 else:
     prev_mark = workspace.name  # type: ignore
     master, focused, previous = find_master(workspace, prev_mark)
