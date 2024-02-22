@@ -55,8 +55,8 @@ bindsym $mod+$alt+i exec --no-startup-id "~/.config/i3/promote_window.py promote
 bindsym $mod+i exec --no-startup-id "~/.config/i3/promote_window.py focus"
 bindsym $mod+j exec --no-startup-id "~/.config/i3/promote_window.py next"
 bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
-# bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
-# bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-container"
+bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
+bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-container"
 
 ### Output configuration
 #
@@ -112,10 +112,10 @@ bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+ntilde focus left
+    bindsym $mod+Shift+ntilde focus left
     bindsym $mod+Shift+j focus down
     bindsym $mod+Shift+k focus up
-    bindsym $mod+l focus right
+    bindsym $mod+Shift+l focus right
 
     # Move the focused window with the same, but add $alt
     bindsym $mod+$alt+$left move left
