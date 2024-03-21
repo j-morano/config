@@ -42,7 +42,8 @@ exec --no-startup-id $run_cmd reset_kb_settings
 # exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
-exec --no-startup-id feh --bg-fill ~/.config/Pictures/2ee.jpg
+# Wallpaper
+exec --no-startup-id feh --bg-fill ~/.config/Pictures/bubbles.jpg
 exec --no-startup-id --no-startup-id xrandr \
     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
     --rate 75 \
@@ -283,6 +284,9 @@ bindsym $mod+$alt+dead_grave exec --no-startup-id $run_cmd terminal_file_manager
 bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
 
 bindsym $mod+u exec --no-startup-id $run_cmd reset_kb_settings
+
+# Screenshot
+bindsym --release Print exec --no-startup-id gnome-screenshot --clipboard --area
 
 #
 # Status Bar:
