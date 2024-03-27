@@ -17,7 +17,8 @@ case $1 in
         j4-dmenu-desktop --dmenu "dmenu -i -fn 'Fira Code-14'"
         ;;
     web_browser)
-        firefox --new-window
+        # firefox --new-window
+        brave-browser --new-window
         ;;
     file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
