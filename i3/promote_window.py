@@ -11,7 +11,6 @@ This script has different modes:
         Otherwise, focuses the window below the focused window.
     - "prev": if the layout is tabbed, then focuses the previous window.
         Otherwise, focuses the window above the focused window.
-    - "last": Focuses the last window.
 
 Copyright: 2023 José Morano
 License: MIT
@@ -76,6 +75,29 @@ if option == 'next' or option == 'prev':
         if leaf.focused:  #type: ignore
             focus_next_leaf = True
     current_container_leaves[0].command("focus")
+elif option == 'next-container' or option == 'prev-container':
+    containers = []
+    for leaf in workspace.leaves():
+        if leaf.parent not in containers:
+            containers.append(leaf.parent)
+    if len(containers) < 2:
+        if option == 'next-container':
+            i3.command(f"focus right")
+        else:
+            i3.command(f"focus left")
+    else:
+        focus_next_container = False
+        assert isinstance(containers, list)
+        focused_index = 0
+        for focused_index, container in enumerate(containers):
+            if focused.parent == container:
+                break
+        if option == 'next-container':
+            target_index = (focused_index + 1) % len(containers)
+        else:
+            target_index = (focused_index - 1) % len(containers)
+        containers[target_index].command("focus")
+        i3.command("focus child")
 else:
     prev_mark = workspace.name  # type: ignore
     master, focused, previous = find_master(workspace, prev_mark)
@@ -99,8 +121,3 @@ else:
             # Mark focused window as previous and focus master.
             i3.command(f"[con_id=\"{focused.id}\"] mark {prev_mark}")
             i3.command(f"[con_id=\"{master.id}\"] focus")
-    elif option == "last":
-        # Focus previous window
-        i3.command(f"[con_id=\"{previous.id}\"] focus")
-        # Mark focused window as previous
-        i3.command(f"[con_id=\"{focused.id}\"] mark {prev_mark}")

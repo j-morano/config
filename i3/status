@@ -11,21 +11,21 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--toggle', action='store_true')
 args = parser.parse_args()
 
-i3_show_time_fn = Path('/tmp/i3_show_time')
+i3_hide_time_fn = Path('/tmp/i3_hide_time')
 
 if args.toggle:
-    if i3_show_time_fn.exists():
-        i3_show_time_fn.unlink()
+    if i3_hide_time_fn.exists():
+        i3_hide_time_fn.unlink()
     else:
-        i3_show_time_fn.touch()
+        i3_hide_time_fn.touch()
 else:
     i3 = i3ipc.Connection()
     num_scratchpad = len(i3.get_tree().scratchpad().leaves())
 
     # By default, print only date
-    show_time = False
-    if i3_show_time_fn.exists():
-        show_time = True
+    show_time = True
+    if i3_hide_time_fn.exists():
+        show_time = False
 
     if show_time:
         str_fr_time = '%F %R'

@@ -196,13 +196,19 @@ return {
     },
     {
       key = 'c',
-      mods = 'CTRL|SHIFT',
+      mods = 'CTRL',
       action = wezterm.action { CopyTo="Clipboard" },
     },
     {
       key = 'v',
-      mods = 'CTRL|SHIFT',
+      mods = 'CTRL',
       action = wezterm.action { PasteFrom="Clipboard" },
+    },
+    {
+      key = 'x',
+      mods = 'CTRL',
+      -- Ctrl-c alternative to kill job
+      action = wezterm.action { SendString="\x03" },
     },
     { -- Disable padding
       key = 'f',
@@ -237,4 +243,5 @@ return {
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+  front_end = "OpenGL",
 }

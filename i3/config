@@ -55,11 +55,10 @@ exec --no-startup-id feh --bg-fill ~/.config/Pictures/2ee.jpg
 # Promote window
 bindsym $mod+$alt+i exec --no-startup-id "~/.config/i3/promote_window.py promote"
 bindsym $mod+i exec --no-startup-id "~/.config/i3/promote_window.py focus"
-bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last"
 bindsym $mod+j exec --no-startup-id "~/.config/i3/promote_window.py next"
 bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
-# bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
-# bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-container"
+bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
+bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-container"
 
 ### Output configuration
 #
@@ -115,10 +114,10 @@ bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+ntilde focus left
+    bindsym $mod+Shift+ntilde focus left
     bindsym $mod+Shift+j focus down
     bindsym $mod+Shift+k focus up
-    bindsym $mod+l focus right
+    bindsym $mod+Shift+l focus right
 
     # Move the focused window with the same, but add $alt
     bindsym $mod+$alt+$left move left
@@ -145,6 +144,7 @@ bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
     set $m "13:m"
     set $c "14:,"
     set $p "15::"
+    set $g "16:g"
 
     # Switch to workspace
     bindsym $mod+1 workspace $1
@@ -162,6 +162,7 @@ bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
     bindsym $mod+comma workspace $c
     bindsym $mod+period workspace $p
     bindsym $mod+x workspace $x
+    bindsym $mod+g workspace $g
     # Move focused container to workspace
     bindsym $mod+$alt+1 move container to workspace $1
     bindsym $mod+$alt+2 move container to workspace $2
@@ -178,6 +179,7 @@ bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
     bindsym $mod+$alt+comma move container to workspace $c
     bindsym $mod+$alt+period move container to workspace $p
     bindsym $mod+$alt+x move container to workspace $x
+    bindsym $mod+$alt+g move container to workspace $g
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -283,6 +285,9 @@ bindsym $mod+$alt+dead_grave exec --no-startup-id $run_cmd terminal_file_manager
 bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
 
 bindsym $mod+u exec --no-startup-id $run_cmd reset_kb_settings
+
+# Screenshot
+bindsym --release Print exec --no-startup-id gnome-screenshot --clipboard --area
 
 #
 # Status Bar:
