@@ -8,7 +8,7 @@ case $1 in
         pactl set-sink-volume @DEFAULT_SINK@ -2%
         ;;
     launcher)
-        j4-dmenu-desktop --dmenu "bemenu -i --fn 'FiraCode 12'"
+        j4-dmenu-desktop --dmenu "bemenu -i --fn 'FiraCode 18'"
         ;;
     web_browser)
         firefox --new-window
