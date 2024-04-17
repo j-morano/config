@@ -144,6 +144,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
     set $c "14:,"
     set $p "15::"
     set $g "16:g"
+    set $y "17:y"
 
     # Switch to workspace
     bindsym $mod+1 workspace $1
@@ -162,6 +163,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
     bindsym $mod+period workspace $p
     bindsym $mod+x workspace $x
     bindsym $mod+g workspace $g
+    bindsym $mod+y workspace $y
     # Move focused container to workspace
     bindsym $mod+$alt+1 move container to workspace $1
     bindsym $mod+$alt+2 move container to workspace $2
@@ -179,6 +181,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
     bindsym $mod+$alt+period move container to workspace $p
     bindsym $mod+$alt+x move container to workspace $x
     bindsym $mod+$alt+g move container to workspace $g
+    bindsym $mod+$alt+y move container to workspace $y
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
