@@ -47,7 +47,7 @@ xkb_symbols "basic" {
     include "shift(lshift_both_capslock)"
     include "shift(rshift_both_capslock)"
 
-    key <BKSL>	{ [  Return,   Return,   braceright,   dead_breve ]	};
+    key <BKSL>	{ [  backslash,   backslash,   braceright,   dead_breve ]	};
 
     include "level3(ralt_switch)"
 };
