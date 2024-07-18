@@ -43,7 +43,7 @@ exec --no-startup-id $run_cmd reset_kb_settings
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/.config/Pictures/bubbles.jpg
+exec --no-startup-id feh --bg-fill ~/.config/Pictures/palms.jpg
 exec --no-startup-id --no-startup-id xrandr \
     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
     --rate 75 \
