@@ -6,7 +6,7 @@
 
 ### Variables
 
-font pango:Fira Code 12
+font pango:Fira Code 13
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -42,8 +42,10 @@ exec --no-startup-id $run_cmd reset_kb_settings
 # exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
+exec --no-startup-id /usr/bin/insync start
+exec --no-startup-id /usr/bin/blueman-applet
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/.config/Pictures/palms.jpg
+exec --no-startup-id feh --bg-fill ~/.config/Pictures/cmon.jpg
 exec --no-startup-id --no-startup-id xrandr \
     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
     --rate 75 \
@@ -126,7 +128,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
 #
 # Workspaces:
 #
-    workspace "11:x" output HDMI-0
+    workspace "14:," output HDMI-0
 
     set $1 "1:1"
     set $2 "2:2"
