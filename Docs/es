@@ -36,7 +36,7 @@ xkb_symbols "basic" {
     key <AD11>	{ [dead_grave, dead_circumflex, bracketleft, dead_abovering ] };
     key <AD12>	{ [      plus,   asterisk, bracketright,  dead_macron ]	};
 
-    key <AC10>	{ [    ntilde, Ntilde,   asciitilde, dead_doubleacute ]	};
+    key <AC10>	{ [    ntilde, colon,  Ntilde,   asciitilde ]	};
     key <AC11>	{ [dead_acute, dead_diaeresis, braceleft,   braceleft ]	};
     // key <TLDE>	{ [ masculine, ordfeminine,    backslash,   backslash ]	};
     key <TLDE>	{ [ Escape, masculine,    backslash,   backslash ]	};
