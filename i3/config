@@ -283,8 +283,7 @@ focus_wrapping workspace
 bindsym $mod+$alt+q exec --no-startup-id $run_cmd lock
 
 # File manager
-bindsym $mod+dead_grave exec --no-startup-id $run_cmd file_manager
-bindsym $mod+$alt+dead_grave exec --no-startup-id $run_cmd terminal_file_manager
+bindsym $mod+bracketleft exec --no-startup-id $run_cmd file_manager
 # Web browser
 bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
 
