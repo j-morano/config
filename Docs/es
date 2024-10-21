@@ -27,7 +27,7 @@ xkb_symbols "basic" {
     name[Group1]="Spanish";
 
     key <AE01>	{ [         1,     exclam,          bar,   exclamdown ]	};
-    key <AE03>	{ [         3, periodcentered, numbersign,   sterling ]	};
+    key <AE03>	{ [         3, numbersign, periodcentered,   sterling ]	};
     key <AE04>	{ [         4,     dollar,   asciitilde,       dollar ]	};
     key <AE06>	{ [         6,  ampersand,      notsign,  fiveeighths ]	};
     key <AE11>	{ [apostrophe,   question,    backslash, questiondown ]	};
