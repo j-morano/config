@@ -40,7 +40,7 @@ case $1 in
         notify-send -t 2000 "$(date)"
         ;;
     terminal)
-        wezterm
+        gnome-terminal
         ;;
     lock)
         i3lock -c 333333

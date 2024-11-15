@@ -92,6 +92,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
 #
     # Start a terminal
     bindsym $mod+Return exec --no-startup-id $run_cmd terminal
+    bindsym $alt+Return exec --no-startup-id $run_cmd terminal
 
     # Kill focused window
     bindsym $mod+q kill
