@@ -243,5 +243,5 @@ return {
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  front_end = "OpenGL",
+  front_end = "Software",
 }
