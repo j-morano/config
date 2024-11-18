@@ -5,6 +5,7 @@
 !.gitignore
 !.gitmodules
 !configure.sh
+!gnome_terminal_settings.txt
 !dunst/**
 !wezterm/**
 !suckless/**
