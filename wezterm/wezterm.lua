@@ -137,43 +137,43 @@ local colors = {
 
 return {
   font = wezterm.font 'Fira Code',
-  font_rules = {
-    -- For Bold-but-not-italic text, use this relatively bold font, and override
-    -- its color to a tomato-red color to make bold text really stand out.
-    {
-      intensity="Bold",
-      italic=false,
-      font=wezterm.font("Fira Code SemiBold", {bold=false, italic=false}),
-    },
+  -- font_rules = {
+  --   -- For Bold-but-not-italic text, use this relatively bold font, and override
+  --   -- its color to a tomato-red color to make bold text really stand out.
+  --   {
+  --     intensity="Bold",
+  --     italic=false,
+  --     font=wezterm.font("Fira Code", {bold=true, italic=false}),
+  --   },
 
-    -- Bold-and-italic
-    {
-      intensity = 'Bold',
-      italic = true,
-      font=wezterm.font("Fira Code SemiBold", {bold=false, italic=false}),
-    },
+  --   -- Bold-and-italic
+  --   {
+  --     intensity = 'Bold',
+  --     italic = true,
+  --     font=wezterm.font("Fira Code", {bold=true, italic=false}),
+  --   },
 
-    -- normal-intensity-and-italic
-    {
-      intensity = 'Normal',
-      italic = true,
-      font=wezterm.font("Fira Code", {bold=false, italic=false}),
-    },
+  --   -- normal-intensity-and-italic
+  --   {
+  --     intensity = 'Normal',
+  --     italic = true,
+  --     font=wezterm.font("Fira Code", {bold=false, italic=false}),
+  --   },
 
-    -- half-intensity-and-italic (half-bright or dim); use a lighter weight font
-    {
-      intensity = 'Half',
-      italic = true,
-      font=wezterm.font("Fira Code", {bold=false, italic=false}),
-    },
+  --   -- half-intensity-and-italic (half-bright or dim); use a lighter weight font
+  --   {
+  --     intensity = 'Half',
+  --     italic = true,
+  --     font=wezterm.font("Fira Code", {bold=false, italic=false}),
+  --   },
 
-    -- half-intensity-and-not-italic
-    {
-      intensity = 'Half',
-      italic = false,
-      font=wezterm.font("Fira Code", {bold=false, italic=false}),
-    },
-  },
+  --   -- half-intensity-and-not-italic
+  --   {
+  --     intensity = 'Half',
+  --     italic = false,
+  --     font=wezterm.font("Fira Code", {bold=false, italic=false}),
+  --   },
+  -- },
   line_height = 1.15,
   font_size = 12,
   disable_default_key_bindings = true,
@@ -243,5 +243,9 @@ return {
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  front_end = "Software",
+  front_end = 'Software',
+  freetype_load_target = 'Light',
+  freetype_render_target = 'HorizontalLcd',
+  freetype_load_flags = 'NO_HINTING',
+  -- cell_width = 0.9,
 }
