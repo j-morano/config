@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 
--- local scheme = wezterm.get_builtin_color_schemes()['AtomOneLight']
+-- local scheme = wezterm.get_builtin_color_schemes()['Dracula (base16)']
 -- scheme.background = '#e1e2e7'
 -- scheme.selection_bg = '#d0d0d0'
 
@@ -233,8 +233,9 @@ return {
   },
   -- color_schemes = {
   --   -- Override the builtin Gruvbox Light scheme with our modification.
-  --   ['AtomOneLight'] = scheme,
+  --   ['Dracula (base16)'] = scheme,
   -- },
+  -- color_scheme = 'Dracula (base16)',
   custom_block_glyphs = false,
   cursor_thickness = 2,
   -- color_scheme = "AtomOneLight",
