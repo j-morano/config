@@ -16,6 +16,7 @@
 gtk-3.0/bookmarks
 gtk-2.0/gtkfilechooser.ini
 !nautilus/**
+!kdeglobals
 !nvim
 !vim/**
 !JetBrains/PyCharmCE*/settings/**

@@ -1,0 +1,15 @@
+[KDE]
+ShowDeleteCommand=true
+SingleClick=true
+
+[KShortcutsDialog Settings]
+Dialog Size=721,480
+
+[PreviewSettings]
+MaximumRemoteSize=0
+
+[General]
+TerminalApplication=/usr/bin/open-wezterm-here
+
+[Colors:View]
+BackgroundNormal=#31363B
