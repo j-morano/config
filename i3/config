@@ -147,7 +147,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
     set $c "14:,"
     set $p "15::"
     set $g "16:g"
-    set $y "17:y"
+    set $u "17:u"
 
     # Switch to workspace
     bindsym $mod+1 workspace $1
@@ -166,7 +166,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
     bindsym $mod+period workspace $p
     bindsym $mod+x workspace $x
     bindsym $mod+g workspace $g
-    bindsym $mod+y workspace $y
+    bindsym $mod+u workspace $u
     # Move focused container to workspace
     bindsym $mod+$alt+1 move container to workspace $1
     bindsym $mod+$alt+2 move container to workspace $2
@@ -184,7 +184,7 @@ bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-co
     bindsym $mod+$alt+period move container to workspace $p
     bindsym $mod+$alt+x move container to workspace $x
     bindsym $mod+$alt+g move container to workspace $g
-    bindsym $mod+$alt+y move container to workspace $y
+    bindsym $mod+$alt+u move container to workspace $u
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -288,7 +288,7 @@ bindsym $mod+bracketleft exec --no-startup-id $run_cmd file_manager
 # Web browser
 bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
 
-bindsym $mod+u exec --no-startup-id $run_cmd reset_kb_settings
+bindsym $mod+y exec --no-startup-id $run_cmd reset_kb_settings
 
 # Screenshot
 bindsym --release Print exec --no-startup-id flameshot gui --clipboard --accept-on-select
