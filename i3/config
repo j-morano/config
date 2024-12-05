@@ -6,7 +6,7 @@
 
 ### Variables
 
-font pango:Fira Code 13
+font pango:Fira Code 14
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
