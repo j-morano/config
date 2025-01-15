@@ -11,6 +11,8 @@ This script has different modes:
         Otherwise, focuses the window below the focused window.
     - "prev": if the layout is tabbed, then focuses the previous window.
         Otherwise, focuses the window above the focused window.
+    - "next-container": focuses the next first-level container.
+    - "prev-container": focuses the previous first-level container.
 
 Copyright: 2023 José Morano
 License: MIT
