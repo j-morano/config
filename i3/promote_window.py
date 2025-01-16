@@ -21,7 +21,7 @@ Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
 """
 
 import sys
-import os
+# import os
 
 from i3ipc import Connection, Con
 
@@ -104,9 +104,7 @@ elif option == 'next-container' or option == 'prev-container':
         #  ids. The “focused inactive” is at the top of the list which
         #  is the container that would be focused if this container
         #  recieves focus.
-        focus_inactive_child_id = container.focus[0]
-        focus_inactive_child = container.find_by_id(focus_inactive_child_id)
-        focus_inactive_child.command("focus")
+        i3.command(f"[con_id=\"{container.focus[0]}\"] focus")
 else:
     prev_mark = workspace.name  # type: ignore
     master, focused, previous = find_master(workspace, prev_mark)
