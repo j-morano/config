@@ -11,7 +11,8 @@ case $1 in
         j4-dmenu-desktop --dmenu "bemenu -i --fn 'FiraCode 18'"
         ;;
     web_browser)
-        firefox --new-window
+        # firefox --new-window
+        brave-browser --new-window
         ;;
     file_manager)
         nautilus --new-window
@@ -27,14 +28,5 @@ case $1 in
         ;;
     reset_kb_settings)
         xset r rate 200 40
-        ;;
-    extra_1)
-        /home/morano/.config/Scripts/screen.sh laptop
-        ;;
-    extra_2)
-        /home/morano/.config/Scripts/screen.sh external
-        ;;
-    extra_3)
-        /home/morano/.config/Scripts/screen.sh extend
         ;;
 esac
