@@ -1,0 +1,5 @@
+#! /bin/sh
+
+# ~/.local/share/nautilus/scripts/wezterm
+
+wezterm start --cwd .
