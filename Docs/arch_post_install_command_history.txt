@@ -1,0 +1,301 @@
+cd Docs/
+rm arch_post_install_command_history.txt
+ls
+history
+histoo
+git status
+git add .
+z .conf
+z .
+nohup nautilus --new-window . </dev/null >/dev/null 2>&1 & disown
+z =
+nohup dolphin --new-window . </dev/null >/dev/null 2>&1 & disown
+nvim fish/conf.d/abbreviations.fish
+z .config/
+nvidia-smi
+python --version
+z Medical-SAM2/
+z Med
+z found
+git push
+git commit -m "Updated desktop file"
+cd ..
+cp volume_viewer.desktop ~/.local/share/applications/
+pwd
+cd venv/bin/
+nvim volume_viewer.desktop
+pip install -r requirements.txt
+. venv/bin/activate.fish
+python -m venv venv
+sudo pacman -S Pillow
+sudo pacman -S python-Pillow
+sudo pacman -S python-PIL
+/home/morano/Programs/volume-viewer/volume_viewer.py 80562308-25-NEAAWEIFIAXGZAIVAAAGAOAIQ+EULHGQQXVZDDYEJPTGVPPSKJWQVUXELLDSXQD+EBSGTG_bscan.npy
+sudo pacman -S python-numpy
+pip install numpy
+/home/morano/tmp/FullVIBES-v2/bscanslo
+mv volume-viewer.desktop volume_viewer.desktop
+nvim volume-viewer.desktop
+cat volume-viewer.desktop
+cd volume-viewer/
+git clone git@github.com:j-morano/volume-viewer.git
+z
+z home/Programs/
+z ..
+z etc/
+z bin/
+z SW
+z Programs/
+python mixed_bscan_slo.py
+nvim mixed_bscan_slo.py
+mv mixed_oct_slo.py mixed_bscan_slo.py
+ssh jmoran82@s0-l01.hpc.meduniwien.ac.at
+nvim mixed_oct_slo.py
+z data-processing/
+deactivate
+. venv/bin/activate
+venv/bin/python3.10 --version
+. ls
+pyenv install 3.10.10
+sudo pacman -S tk
+pip install tkinter
+sudo pacman -S python-pip
+z futur
+pyenv --help
+curl -fsSL https://pyenv.run | bash
+
+fastfetch
+nvim i3/promote_window.py
+sudo pacman -S signal-desktop
+sudo pacman -S okular
+yay -S nomacs
+sudo pacman -S nomacs
+cat ~/.ssh/id_ed25519.pub
+ssh jsanchez@on4.cir.meduniwien.ac.at
+sudo chown -R morano:morano /mnt/Data/
+sshfs jsanchez@on4.cir.meduniwien.ac.at:/home/optima/jsanchez /mnt/Data/SSHFS/server/
+ls /optima
+sshfs jsanchez@on4.cir.meduniwien.ac.at:/optima /optima/
+sudo chown -R morano:morano /optima
+sudo mkdir /optima
+sshfs jsanchez@on4.cir.meduniwien.ac.at:/optima /optima/
+sshfs jsanchez@on4.cir.meduniwien.ac.at:/home/optima/jsanchez /mnt/Data/SSHFS/server/
+sshfs jmoran82@s0-l01.hpc.meduniwien.ac.at:/msc/home/jmoran82/ /mnt/Data/SSHFS/msc_server/
+
+sudo pacman -S sshfs
+cat mount_fs
+/run/media/morano/SW1000/OPTIMA/Source
+z future/
+z MultiOptiMAE.git/
+z OPTIMA/Source/foundation_model/
+z /run/media/morano/SW1000/
+sudo pacman -S flameshot
+git reset --hard
+git commit -m "Updated installation script"
+git add install
+git diff
+./install
+rm -r /home/morano/.local/bin
+nvim install
+z contemporary-z/
+python3 -c "$(curl --proto '=https' --tlsv1.2 -sSf 'https://raw.githubusercontent.com/j-morano/contemporary-z/main/install?$RANDOM')"
+python3 -c "$(curl --proto '=https' --tlsv1.2 -sSf 'https://raw.githubusercontent.com/j-morano/contemporary-z/main/install$RANDOM')"
+python3 -c "$(curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/j-morano/contemporary-z/main/install$RANDOM)"
+python3 -c "$(curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/j-morano/contemporary-z/main/install?)"
+python3 -c "$(curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/j-morano/contemporary-z/main/install?$RANDOM)"
+python3 -c "$(curl -H 'Cache-Control: no-cache' --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/j-morano/contemporary-z/main/install)"
+curl https://raw.githubusercontent.com/j-morano/contemporary-z/main/install
+curl  -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/j-morano/contemporary-z/main/install
+python3 -c "$(curl https://raw.githubusercontent.com/j-morano/contemporary-z/main/install)"
+cd contemporary-z/
+python3 -c "$(curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/j-morano/contemporary-z/main/install)"
+ls /home/morano/.local/bin/
+sudo pacman -S pyright
+
+pip3 install pyright
+pip install pyright
+sudo pacman -S python-pyright
+nvim
+git commit -m 'Updated README'
+git config --global user.name "José Morano"
+git config --global user.email "particular.msj@gmail.com"
+~/.config/nvim/scripts/plugins.py sync
+scripts/plugins.py sync
+mkdir -p ~/.local/share/nvim/site/pack/plugins/start
+cd .config/nvim/
+mkdir -p .local/share/nvim/site/pack/plugins
+~
+vim scripts/plugins.py
+vim plugins
+vim README.md
+nvim README.md
+cd nvim/
+git clone git@github.com:j-morano/nvim-config.git nvim/
+git pull
+git clone git@github.com:j-morano/contemporary-z.git
+z --version
+mkdir /home/morano/.local/bin/
+cat arch_post_install_command_history.txt
+cd .config/
+sudo pacman -S noto-fonts-emoji
+sudo pacman -S noto-fonts-emoji ttf-nerd-fonts-symbols-mono
+sudo pacman -S policycoreutils
+poweroff
+sudo nvim /etc/gdm/custom.conf
+sudo nvim
+sudo cat ~gdm/.config/monitors.xml
+
+sudo ls -Z -l ~gdm/.config/monitors.xml
+
+sudo cp -f ~/.config/monitors.xml ~gdm/.config/monitors.xml
+sudo chown $(id -u gdm):$(id -g gdm) ~gdm/.config/monitors.xml
+sudo restorecon ~gdm/.config/monitors.xml
+reboot
+cat ~gdm/
+sudo cp ~/.config/monitors.xml ~gdm/.config
+sudo chown gdm: ~gdm/.config/monitors.xml
+cat ~/.config/monitors.xml
+sudo nvidia-settings
+nvim /etc/X11/xorg.conf
+ls -l /dev/disk/by-uuid
+
+sudo vim /etc/fstab
+cd /mnt/Data/
+ls /mnt/Data/
+sudo mount /dev/sda /mnt/Data
+sudo mkdir /mnt/Data
+mkdir /mnt/Data
+sudo pacman -S docker
+bluetoothctl
+sudo pacman -S bluez-utils
+sudo systemctl enable bluetooth
+
+sudo systemctl start bluetooth
+
+sudo systemctl start bluez
+sudo pacman -S bluez
+nvim .config/i3/config
+sudo pacman -S blueman
+sudo pacman -R gnome-bluetooth
+sudo pacman -r gnome-bluetooth
+gnome-control-center
+
+
+gnome-settings
+sudo pacman -S gnome-bluetooth
+sudo pacman -S bluetoothctl
+lsusb
+sudo
+nvim .config/suckless/run_cmd
+sudo pacman -S gnome-tweaks
+sudo pacman -S papirus-icon-theme
+sudo pacman -S kvantum
+nvim .profile
+nvim .bash_profile
+notify-send a
+sudo pacman -S i3lock
+sudo pacman -S fastfetch
+po i
+sudo pacman -S feh
+sudo mkinitcpio -P
+sudo vim /etc/mkinitcpio.conf
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo vim /etc/default/grub
+cd /boot/loader/entries/
+
+sudo modprobe nvidia
+
+modprobe nvidia
+
+sudo pacman -S nvidia nvidia-utils nvidia-settings
+
+lspci -k -d ::03xx
+lspci
+yay -Syu
+sudo pacman -S base-devel linux-headers git nano --needed
+sudo pacman -Syu
+sudo pacman -R notify-osd
+/usr/bin/dunst
+nvim i3/config
+sudo pacman -S dunst
+sudo pacman -S notify-osd
+ls Docs/
+rm -rf config/
+rm -r config/
+insync start
+insync
+yay -S insync
+yay -S zoom
+cp anydesk.desktop ~/.local/share/applications/
+nvim anydesk.desktop
+sudo rm /usr/bin/anydesk
+sudo chmod +x /usr/bin/anydesk
+chmod +x /usr/bin/anydesk
+anydesk
+sudo ln -s anydesk /usr/bin/anydesk
+ln -s anydesk /usr/bin/anydesk
+ln --help
+ln -h
+cat anydesk.desktop
+cd Programs/anydesk-6.4.0-amd64/anydesk-6.4.0/
+sudo pacman -S j4-dmenu-desktop
+nvim suckless/run_cmd
+ls -lsa
+cp Xresources ~/.Xresources
+cat xprofile
+cat Xresources
+cd suckless/
+ls suckless/
+xrandr
+sudo pacman -S xorg-xrandr
+sudo pacman -S xrandr
+sudo pacman -S fish
+su
+brave --new-window
+brave
+ls /lsa
+sudo pacman -S python-i3ipc
+pip install i3ipc
+sudo pacman -S pip3
+sudo pacman -S pip
+sudo pacman -S python3-pip
+nvim i3/status
+setxkbmap es
+loadkeys es
+sudo cp Docs/es /usr/share/X11/xkb/symbols/es
+cat Docs/es
+git submodule update --init --recursive
+sudo pacman -S ttf-fira-code
+rsync -a ./ ~/.config/
+sudo pacman -S rsync
+cd config/
+git clone git@github.com:j-morano/config.git
+cat /home/morano/.ssh/id_ed25519.pub
+cat ~/home/morano/.ssh/id_ed25519.pub
+ssh-keygen -t ed25519
+ssh-keygen -ed25519
+ssh-keygen -ed2159
+sudo pacman -S wezterm
+brave-browser
+curl -fsS https://dl.brave.com/install.sh | sh
+makepkg -si
+sudo pacman -S --needed base-devel
+cd yay-git/
+sudo chown -R morano:morano ./yay-git/
+sudo git clone https://aur.archlinux.org/yay-git.git
+cd /opt/
+mkdir Programs
+sudo pacman -S git
+sudo pacman -S yay
+firefox
+sudo pacman -S firefox
+ping google.com
+sudo systemctl enable --now gdm
+sudo pacman -S xorg
+startx
+sudo pacman -S xterm
+vim .xinitrc
+i3
+sudo pacman -S gnome
+sudo pacman -S dmenu
+cp /etc/X11/xinit/xinitrc ~/.xinitrc

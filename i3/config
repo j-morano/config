@@ -45,7 +45,7 @@ exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id /usr/bin/insync start
 exec --no-startup-id /usr/bin/blueman-applet
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/.config/Pictures/cmon.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/cmon.jpg
 exec --no-startup-id --no-startup-id xrandr \
     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
     --rate 75 \
