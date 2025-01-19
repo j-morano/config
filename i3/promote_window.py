@@ -11,6 +11,8 @@ This script has different modes:
         Otherwise, focuses the window below the focused window.
     - "prev": if the layout is tabbed, then focuses the previous window.
         Otherwise, focuses the window above the focused window.
+    - "next-container": focuses the next first-level container.
+    - "prev-container": focuses the previous first-level container.
 
 Copyright: 2023 José Morano
 License: MIT
@@ -19,7 +21,7 @@ Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
 """
 
 import sys
-import os
+# import os
 
 from i3ipc import Connection, Con
 
@@ -96,8 +98,13 @@ elif option == 'next-container' or option == 'prev-container':
             target_index = (focused_index + 1) % len(containers)
         else:
             target_index = (focused_index - 1) % len(containers)
-        containers[target_index].command("focus")
-        i3.command("focus child")
+        # Get the focused child of the target container
+        container = containers[target_index]
+        # The focus stack for this container as a list of container
+        #  ids. The “focused inactive” is at the top of the list which
+        #  is the container that would be focused if this container
+        #  recieves focus.
+        i3.command(f"[con_id=\"{container.focus[0]}\"] focus")
 else:
     prev_mark = workspace.name  # type: ignore
     master, focused, previous = find_master(workspace, prev_mark)

@@ -3,9 +3,27 @@
 import datetime
 from pathlib import Path
 import argparse
+import os
 
 import i3ipc
 
+
+
+battery = open('/sys/class/power_supply/BAT0/capacity').read().strip()
+status = open('/sys/class/power_supply/BAT0/status').read().strip()
+print('Battery:', battery, end='%')
+if int(battery) < 20 and status == 'Discharging':
+    print('🪫', end='| ')
+    # if second is modulo 60, then notify
+    if datetime.datetime.now().second % 60 == 0:
+        os.system(
+            'notify-send -u critical "Battery low" "Battery is at {}%"'
+            .format(battery)
+        )
+elif status == 'Charging':
+    print('🔌', end='| ')
+else:
+    print('🔋', end='| ')
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--toggle', action='store_true')
