@@ -29,4 +29,14 @@ if status --is-interactive
     abbr --add -g oe 'nohup nautilus --new-window . </dev/null >/dev/null 2>&1 & disown && exit'
     # Xclip
     abbr --add -g xc 'xclip -sel clip'
+    # Screen
+    abbr --add -g sint xrandr \
+        --output eDP-1 --primary --mode 1920x1080 --rotate normal --pos 1920x0 \
+        --rate 60 \
+        --output HDMI-1-0 --off
+    abbr --add -g sext xrandr \
+        --output eDP-1 --primary --mode 1920x1080 --rotate normal --pos 1920x0 \
+        --rate 60 \
+        --output HDMI-1-0 --mode 1920x1080 --rotate normal --pos 0x0 \
+        --rate 60
 end
