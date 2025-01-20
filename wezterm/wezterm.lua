@@ -10,7 +10,14 @@ local function recompute_padding(window)
   local overrides = window:get_config_overrides() or {}
   -- Check if overrides.window_padding_enabled is set
   if overrides.window_padding_enabled == nil then
-    overrides.window_padding_enabled = true
+    -- Check if a shell is running (bash, fish)
+    -- If so, enable padding, otherwise disable it
+    local shell = window:active_pane():get_foreground_process_name()
+    if shell:match("bash") or shell:match("fish") then
+      overrides.window_padding_enabled = true
+    else
+      overrides.window_padding_enabled = false
+    end
   end
 
   if window_dims.pixel_width < 1500 then
