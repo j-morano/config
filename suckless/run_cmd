@@ -17,17 +17,14 @@ case $1 in
         j4-dmenu-desktop --dmenu "dmenu -i -fn 'Fira Code-14'"
         ;;
     web_browser)
-        # firefox --new-window
         brave --new-window
         ;;
     file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            # dolphin --new-window /run/media/$USERNAME/SW1000/
-            nautilus --new-window /run/media/$USERNAME/SW1000/
+            thunar --window /run/media/$USERNAME/SW1000/
         else
-            # dolphin --new-window $HOME
-            nautilus --new-window $HOME
+            thunar --window $HOME
         fi
         ;;
     terminal_file_manager)
