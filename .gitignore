@@ -1,6 +1,5 @@
 *
 !README.md
-!ranger/**
 !bat/**
 !.gitignore
 !.gitmodules
@@ -29,4 +28,5 @@ fish/functions/**
 !fish/functions/fish_user_key_bindings.fish
 !Commands/**
 !*/
+!yazi/**
 __pycache__/

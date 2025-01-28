@@ -30,9 +30,9 @@ case $1 in
     terminal_file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            wezterm -e ranger /run/media/$USERNAME/SW1000/
+            wezterm -e yazi /run/media/$USERNAME/SW1000/
         else
-            wezterm -e ranger $HOME
+            wezterm -e yazi $HOME
         fi
         ;;
     date)
