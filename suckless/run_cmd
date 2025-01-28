@@ -22,9 +22,9 @@ case $1 in
     file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            thunar --window /run/media/$USERNAME/SW1000/
+            nautilus --new-window /run/media/$USERNAME/SW1000/
         else
-            thunar --window $HOME
+            nautilus --new-window $HOME
         fi
         ;;
     terminal_file_manager)
