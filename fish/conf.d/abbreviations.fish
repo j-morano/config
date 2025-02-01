@@ -25,8 +25,9 @@ if status --is-interactive
     abbr --add -g mountsw 'udisksctl mount -b /dev/disk/by-label/SW1000'
     abbr --add -g unmountsw 'udisksctl unmount -b /dev/disk/by-label/SW1000'
     # Open dir
-    abbr --add -g o 'nohup wezterm -e yazi . </dev/null >/dev/null 2>&1 & disown'
-    abbr --add -g oe 'nohup wezterm -e yazi . </dev/null >/dev/null 2>&1 & disown && exit'
+    abbr --add -g o 'nohup nautilus --new-window . </dev/null >/dev/null 2>&1 & disown'
+    abbr --add -g y 'nohup wezterm start -e yazi </dev/null >/dev/null 2>&1 & disown'
+    abbr --add -g oe 'nohup nautilus --new-window . </dev/null >/dev/null 2>&1 & disown && exit'
     # Xclip
     abbr --add -g xc 'xclip -sel clip'
 end

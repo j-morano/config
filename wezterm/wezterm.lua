@@ -251,7 +251,7 @@ return {
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  front_end = 'Software',
+  -- front_end = 'Software',
   freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   freetype_load_flags = 'NO_HINTING',
