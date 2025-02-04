@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+
+import sys
+from pathlib import Path
+import subprocess
+
+contents = 'copy\n'
+
+for i in range(2, len(sys.argv)):
+    realpath = str(Path(sys.argv[i]).resolve())
+    if i == len(sys.argv) - 1:
+        contents += 'file://' + realpath
+    else:
+        contents += 'file://' + realpath + '\n'
+
+if sys.argv[1] == 'gnome':
+    subprocess.run(['xclip', '-selection', 'clipboard', '-t', 'x-special/gnome-copied-files'], input=contents.encode('utf-8'))
+else:
+    subprocess.run(['xclip', '-selection', 'clipboard', '-t', 'text/uri-list'], input=contents.encode('utf-8'))

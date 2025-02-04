@@ -2,3 +2,15 @@
 on = "ñ"
 run = "leave"
 desc = "alternative back"
+
+[[manager.prepend_keymap]]
+on  = "y"
+run = [ '''
+    shell '/home/morano/.config/yazi/copy uri $@'
+''', "yank" ]
+
+[[manager.prepend_keymap]]
+on  = "b"
+run = [ '''
+    shell '/home/morano/.config/yazi/copy gnome $@'
+''', "yank" ]
