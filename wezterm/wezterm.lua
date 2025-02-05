@@ -236,7 +236,9 @@ return {
       key = '0',
       mods = 'CTRL',
       action = wezterm.action.ResetFontSize,
-    }
+    },
+    -- CTRL-SHIFT-l activates the debug overlay
+    { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
   },
   -- color_schemes = {
   --   -- Override the builtin Gruvbox Light scheme with our modification.
@@ -251,7 +253,7 @@ return {
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  -- front_end = 'Software',
+  front_end = 'OpenGL',
   freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   freetype_load_flags = 'NO_HINTING',
