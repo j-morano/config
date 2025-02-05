@@ -30,16 +30,16 @@ case $1 in
     terminal_file_manager)
         if [ -d "/run/media/morano/SW1000/" ]
         then
-            wezterm -e yazi /run/media/$USERNAME/SW1000/
+            wezterm start --always-new-process -e yazi /run/media/$USERNAME/SW1000/
         else
-            wezterm -e yazi $HOME
+            wezterm start --always-new-process -e yazi $HOME
         fi
         ;;
     date)
         notify-send -t 2000 "$(date)"
         ;;
     terminal)
-        wezterm --config max_fps=60
+        wezterm start --always-new-process
         ;;
     lock)
         i3lock -c 333333
