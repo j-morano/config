@@ -1,15 +1,12 @@
 *
 !README.md
-!ranger/**
+!yazi/**
 !bat/**
 !.gitignore
 !.gitmodules
-!configure.sh
 !dunst/**
 !wezterm/**
-!suckless/**
 !Docs/**
-!i3/**
 !sway/**
 !gtk-*/**
 gtk-3.0/bookmarks
@@ -18,7 +15,6 @@ gtk-2.0/gtkfilechooser.ini
 !waybar/**
 !Scripts/**
 !nvim
-!vim/**
 !fish/**
 fish/functions/**
 !Commands/**

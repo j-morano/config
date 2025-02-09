@@ -33,7 +33,8 @@ workspace_layout tabbed
 hide_edge_borders --i3 none
 
 exec ~/.config/Scripts/battery_alert.sh
-exec /usr/bin/nm-applet --indicator
+# exec /usr/bin/nm-applet --indicator
+exec /usr/bin/dunst
 
 # Promote window
 bindsym $mod+$alt+i exec --no-startup-id "~/.config/i3/promote_window.py promote"

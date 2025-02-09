@@ -1,0 +1,4 @@
+[mode]
+normal_main = { fg = "white", bg = "blue", bold = true }
+select_main = { fg = "white", bg = "red", bold = true }
+unset_main = { fg = "white", bg = "green", bold = true }

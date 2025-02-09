@@ -3,8 +3,9 @@
 * Terminal: wezterm
 * Shell: fish shell
 * Text editor: neovim
-* File manager: ranger
+* File manager: yazi & nautilus
 * Window managers: sway
+* Status bar: waybar
 * Notification daemon: dunst
 
 
