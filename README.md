@@ -7,3 +7,9 @@
 * Window managers: sway
 * Notification daemon: dunst
 
+
+## Installation
+
+```
+rsync -a ./ .config/
+```

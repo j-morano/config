@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 
--- local scheme = wezterm.get_builtin_color_schemes()['AtomOneLight']
+-- local scheme = wezterm.get_builtin_color_schemes()['Dracula (base16)']
 -- scheme.background = '#e1e2e7'
 -- scheme.selection_bg = '#d0d0d0'
 
@@ -10,7 +10,14 @@ local function recompute_padding(window)
   local overrides = window:get_config_overrides() or {}
   -- Check if overrides.window_padding_enabled is set
   if overrides.window_padding_enabled == nil then
-    overrides.window_padding_enabled = true
+    -- Check if a shell is running (bash, fish)
+    -- If so, enable padding, otherwise disable it
+    local shell = window:active_pane():get_foreground_process_name()
+    if shell:match("bash") or shell:match("fish") then
+      overrides.window_padding_enabled = true
+    else
+      overrides.window_padding_enabled = false
+    end
   end
 
   if window_dims.pixel_width < 1500 then
@@ -137,45 +144,48 @@ local colors = {
 
 return {
   font = wezterm.font 'Fira Code',
-  font_rules = {
-    -- For Bold-but-not-italic text, use this relatively bold font, and override
-    -- its color to a tomato-red color to make bold text really stand out.
-    {
-      intensity="Bold",
-      italic=false,
-      font=wezterm.font("Fira Code SemiBold", {bold=false, italic=false}),
-    },
+  -- font_rules = {
+  --   -- For Bold-but-not-italic text, use this relatively bold font, and override
+  --   -- its color to a tomato-red color to make bold text really stand out.
+  --   {
+  --     intensity="Bold",
+  --     italic=false,
+  --     font=wezterm.font("Fira Code", {bold=true, italic=false}),
+  --   },
 
-    -- Bold-and-italic
-    {
-      intensity = 'Bold',
-      italic = true,
-      font=wezterm.font("Fira Code SemiBold", {bold=false, italic=false}),
-    },
+  --   -- Bold-and-italic
+  --   {
+  --     intensity = 'Bold',
+  --     italic = true,
+  --     font=wezterm.font("Fira Code", {bold=true, italic=false}),
+  --   },
 
-    -- normal-intensity-and-italic
-    {
-      intensity = 'Normal',
-      italic = true,
-      font=wezterm.font("Fira Code", {bold=false, italic=false}),
-    },
+  --   -- normal-intensity-and-italic
+  --   {
+  --     intensity = 'Normal',
+  --     italic = true,
+  --     font=wezterm.font("Fira Code", {bold=false, italic=false}),
+  --   },
 
-    -- half-intensity-and-italic (half-bright or dim); use a lighter weight font
-    {
-      intensity = 'Half',
-      italic = true,
-      font=wezterm.font("Fira Code", {bold=false, italic=false}),
-    },
+  --   -- half-intensity-and-italic (half-bright or dim); use a lighter weight font
+  --   {
+  --     intensity = 'Half',
+  --     italic = true,
+  --     font=wezterm.font("Fira Code", {bold=false, italic=false}),
+  --   },
 
-    -- half-intensity-and-not-italic
-    {
-      intensity = 'Half',
-      italic = false,
-      font=wezterm.font("Fira Code", {bold=false, italic=false}),
-    },
-  },
+  --   -- half-intensity-and-not-italic
+  --   {
+  --     intensity = 'Half',
+  --     italic = false,
+  --     font=wezterm.font("Fira Code", {bold=false, italic=false}),
+  --   },
+  -- },
   line_height = 1.15,
-  font_size = 13.0,
+  font_size = 16,
+  window_frame = {
+    font_size = 15,
+  },
   disable_default_key_bindings = true,
   colors = colors,
   keys = {
@@ -232,16 +242,19 @@ return {
     }
   },
   -- color_schemes = {
-  --   -- Override the builtin Gruvbox Light scheme with our modification.
-  --   ['AtomOneLight'] = scheme,
+  --   -- Override the builtin scheme with our modification.
+  --   ['Dracula (base16)'] = scheme,
   -- },
+  -- color_scheme = 'Dracula (base16)',
   custom_block_glyphs = false,
   cursor_thickness = 2,
-  -- color_scheme = "AtomOneLight",
   force_reverse_video_cursor = false,
   hide_tab_bar_if_only_one_tab = true,
   tab_bar_at_bottom = true,
   -- Disable ligatures
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  front_end = "OpenGL",
+  front_end = 'OpenGL',
+  freetype_load_target = 'Light',
+  freetype_render_target = 'HorizontalLcd',
+  freetype_load_flags = 'NO_HINTING',
 }
