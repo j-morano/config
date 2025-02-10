@@ -227,6 +227,11 @@ return {
       mods = 'CTRL',
       action = wezterm.action.IncreaseFontSize,
     },
+    { -- Increase font size
+      key = '=',
+      mods = 'CTRL',
+      action = wezterm.action.IncreaseFontSize,
+    },
     { -- Decrease font size
       key = '-',
       mods = 'CTRL',
