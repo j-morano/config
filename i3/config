@@ -44,6 +44,7 @@ exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id /usr/bin/insync start
 exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/dunst
 # Wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/cmon.jpg
 exec --no-startup-id --no-startup-id xrandr \
