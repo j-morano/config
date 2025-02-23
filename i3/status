@@ -68,3 +68,12 @@ else:
     end = ' | '
 
     print(datetime.datetime.now().strftime(str_fr_time), end=end)
+
+
+result = subprocess.run("ip -4 addr show wlan0", shell=True, capture_output=True, text=True)
+# find inet [ip]/[mask] pattern
+ip = re.search(r"inet ([0-9]+\.[0-9]+\.[0-9]+)(\.[0-9]+/[0-9]+)", result.stdout)
+if ip:
+    print('📡', ip.group(2), end=' | ', sep='..')
+else:
+    print('📡 N/A', end=' | ')
