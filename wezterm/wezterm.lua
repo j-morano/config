@@ -182,9 +182,9 @@ return {
   --   },
   -- },
   line_height = 1.15,
-  font_size = 16,
+  font_size = 13,
   window_frame = {
-    font_size = 15,
+    font_size = 13,
   },
   disable_default_key_bindings = true,
   colors = colors,
@@ -230,6 +230,11 @@ return {
       mods = 'CTRL',
       action = wezterm.action.IncreaseFontSize,
     },
+    { -- Increase font size
+      key = '=',
+      mods = 'CTRL',
+      action = wezterm.action.IncreaseFontSize,
+    },
     { -- Decrease font size
       key = '-',
       mods = 'CTRL',
@@ -239,15 +244,18 @@ return {
       key = '0',
       mods = 'CTRL',
       action = wezterm.action.ResetFontSize,
-    }
+    },
+    -- CTRL-SHIFT-l activates the debug overlay
+    { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
   },
   -- color_schemes = {
-  --   -- Override the builtin scheme with our modification.
+  --   -- Override the builtin Gruvbox Light scheme with our modification.
   --   ['Dracula (base16)'] = scheme,
   -- },
   -- color_scheme = 'Dracula (base16)',
   custom_block_glyphs = false,
   cursor_thickness = 2,
+  -- color_scheme = "AtomOneLight",
   force_reverse_video_cursor = false,
   hide_tab_bar_if_only_one_tab = true,
   tab_bar_at_bottom = true,
@@ -257,4 +265,6 @@ return {
   freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   freetype_load_flags = 'NO_HINTING',
+  enable_wayland = false,
+  -- cell_width = 0.9,
 }

@@ -20,3 +20,4 @@ fish/functions/**
 !Commands/**
 !*/
 __pycache__/
+discord/

@@ -4,16 +4,39 @@ import datetime
 from pathlib import Path
 import argparse
 import os
+import subprocess
+import re
 
 import i3ipc
 
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--toggle', action='store_true')
+args = parser.parse_args()
+i3_hide_time_fn = Path('/tmp/i3_hide_time')
+
+
+i3 = i3ipc.Connection()
+num_scratchpad = len(i3.get_tree().scratchpad().leaves())
+if num_scratchpad > 0:
+    print('📝', num_scratchpad, end=' | ')
+
+
+# Run a command and get its output
+result = subprocess.run("xrandr --verbose", shell=True, capture_output=True, text=True)
+# Match "Brightness: [float]"
+brightness = re.search(r"Brightness: ([0-9]\.[0-9]+)", result.stdout)
+if brightness:
+    print("🔆", brightness.group(1), end=' | ')
+else:
+    print("🔆 N/A", end=' | ')
+
+
 battery = open('/sys/class/power_supply/BAT0/capacity').read().strip()
 status = open('/sys/class/power_supply/BAT0/status').read().strip()
-print('Battery:', battery, end='%')
 if int(battery) < 20 and status == 'Discharging':
-    print('🪫', end='| ')
+    print('🪫', end='')
     # if second is modulo 60, then notify
     if datetime.datetime.now().second % 60 == 0:
         os.system(
@@ -21,15 +44,11 @@ if int(battery) < 20 and status == 'Discharging':
             .format(battery)
         )
 elif status == 'Charging':
-    print('🔌', end='| ')
+    print('🔌', end=' ')
 else:
-    print('🔋', end='| ')
+    print('🔋', end=' ')
+print(battery, end='% | ')
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--toggle', action='store_true')
-args = parser.parse_args()
-
-i3_hide_time_fn = Path('/tmp/i3_hide_time')
 
 if args.toggle:
     if i3_hide_time_fn.exists():
@@ -37,9 +56,6 @@ if args.toggle:
     else:
         i3_hide_time_fn.touch()
 else:
-    i3 = i3ipc.Connection()
-    num_scratchpad = len(i3.get_tree().scratchpad().leaves())
-
     # By default, print only date
     show_time = True
     if i3_hide_time_fn.exists():
@@ -50,7 +66,5 @@ else:
     else:
         str_fr_time = '%F'
     end = ' | '
-    if num_scratchpad > 0:
-        print('Scratchpad:', num_scratchpad, end='')
 
-    print(' |', datetime.datetime.now().strftime(str_fr_time), end=end)
+    print(datetime.datetime.now().strftime(str_fr_time), end=end)

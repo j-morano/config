@@ -6,7 +6,7 @@
 
 ### Variables
 
-font pango:Fira Code 12
+font pango:Fira Code 14
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -42,11 +42,12 @@ exec --no-startup-id picom --backend glx --vsync --use-damage -b
 # Keyboard repeat key speed
 exec --no-startup-id $run_cmd reset_kb_settings
 # exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
-exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /usr/bin/pasystray
-exec --no-startup-id /usr/bin/blueman-applet
+# exec --no-startup-id /usr/bin/nm-applet
+# exec --no-startup-id /usr/bin/pasystray
+# exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/insync start
-exec --no-startup-id feh --bg-fill ~/.config/Pictures/2ee.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/cmon.jpg
+exec --no-startup-id /usr/bin/flameshot
 # exec --no-startup-id --no-startup-id xrandr \
 #     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
 #     --rate 75 \
@@ -274,6 +275,38 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+
+mode "brightness" {
+    bindsym 1 exec --no-startup-id xrandr --output eDP-1 --brightness 1.1
+    bindsym 2 exec --no-startup-id xrandr --output eDP-1 --brightness 0.2
+    bindsym 3 exec --no-startup-id xrandr --output eDP-1 --brightness 0.3
+    bindsym 4 exec --no-startup-id xrandr --output eDP-1 --brightness 0.4
+    bindsym 5 exec --no-startup-id xrandr --output eDP-1 --brightness 0.5
+    bindsym 6 exec --no-startup-id xrandr --output eDP-1 --brightness 0.6
+    bindsym 7 exec --no-startup-id xrandr --output eDP-1 --brightness 0.7
+    bindsym 8 exec --no-startup-id xrandr --output eDP-1 --brightness 0.8
+    bindsym 9 exec --no-startup-id xrandr --output eDP-1 --brightness 0.9
+    bindsym 0 exec --no-startup-id xrandr --output eDP-1 --brightness 1.0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym F6 mode "brightness"
+
+
+set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+mode $exit {
+    bindsym s exec i3lock -c 333333 && systemctl suspend, mode "default"
+    bindsym p exec systemctl poweroff
+    bindsym r exec systemctl reboot
+    bindsym l exec i3-msg exit
+    bindsym b exec i3lock -c 333333
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+$alt+e mode $exit
 
 
 focus_follows_mouse yes
