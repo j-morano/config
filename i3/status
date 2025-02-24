@@ -3,6 +3,7 @@
 import datetime
 from pathlib import Path
 import argparse
+from utils import calculate_cpu_usage, calculate_memory_usage
 
 import i3ipc
 
@@ -18,21 +19,26 @@ if args.toggle:
         i3_hide_time_fn.unlink()
     else:
         i3_hide_time_fn.touch()
+
+i3 = i3ipc.Connection()
+num_scratchpad = len(i3.get_tree().scratchpad().leaves())
+
+if num_scratchpad > 0:
+    print('📝', num_scratchpad, end=' | ')
+
+cpu_usage = calculate_cpu_usage()
+print('🔲', cpu_usage, end='% | ')
+
+if i3_hide_time_fn.exists():
+    str_fr_time = '🗓️ %F'
 else:
-    i3 = i3ipc.Connection()
-    num_scratchpad = len(i3.get_tree().scratchpad().leaves())
+    str_fr_time = '🗓️ %F | 🕒 %R'
 
-    # By default, print only date
-    show_time = True
-    if i3_hide_time_fn.exists():
-        show_time = False
+mem_usage, total, used, available = calculate_memory_usage()
+# used_gb = used / 1024 / 1024
+# total_gb = total / 1024 / 1024
+usage_str = str(int(round(mem_usage))).rjust(2)
+# print(f'💾 {used_gb:.1f}/{total_gb:.1f} ({usage_str}%)', end=' | ')
+print(f'💾 {usage_str}%', end=' | ')
 
-    if show_time:
-        str_fr_time = '%F %R'
-    else:
-        str_fr_time = '%F'
-    end = ' | '
-    if num_scratchpad > 0:
-        print('Scratchpad:', num_scratchpad, end='')
-
-    print(' |', datetime.datetime.now().strftime(str_fr_time), end=end)
+print(datetime.datetime.now().strftime(str_fr_time), end=' | ')
