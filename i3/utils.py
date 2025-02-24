@@ -1,4 +1,8 @@
 import time
+import subprocess
+import re
+
+
 
 def get_cpu_times():
     with open('/proc/stat', 'r') as f:
@@ -48,6 +52,30 @@ def calculate_memory_usage():
     return round(usage_percentage, 2), total, used, available
 
 
+def get_gpu_info():
+    try:
+        # Run nvidia-smi and capture the output
+        output = subprocess.check_output(['nvidia-smi'], encoding='utf-8')
+
+        # Extract GPU usage and memory usage using regex
+        gpu_usage = re.findall(r'(\d+)%\s*Default', output)
+        memory_usage = re.findall(r'(\d+)MiB /( )* (\d+)MiB', output)
+        gpu_usage = gpu_usage[0]
+        memory_used = memory_usage[0][0]
+        memory_total = memory_usage[0][2]
+        mem_percentage = (int(memory_used) / int(memory_total)) * 100
+        return {
+            'usage': gpu_usage,
+            'memory_percentage': mem_percentage,
+            'memory_used': memory_used,
+            'memory_total': memory_total,
+        }
+
+    except Exception as e:
+        print("Error retrieving GPU info:", e)
+        return None
+
+
 
 if __name__ == "__main__":
     usage = calculate_cpu_usage()
@@ -58,4 +86,11 @@ if __name__ == "__main__":
     print(f"Total: {total // 1024} MB")
     print(f"Used: {used // 1024} MB")
     print(f"Available: {available // 1024} MB")
+
+    gpu_data = get_gpu_info()
+
+    if gpu_data != {}:
+        print(gpu_data)
+    else:
+        print("No GPU information available.")
 

@@ -3,7 +3,7 @@
 import datetime
 from pathlib import Path
 import argparse
-from utils import calculate_cpu_usage, calculate_memory_usage
+from utils import calculate_cpu_usage, calculate_memory_usage, get_gpu_info
 
 import i3ipc
 
@@ -12,13 +12,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--toggle', action='store_true')
 args = parser.parse_args()
 
-i3_hide_time_fn = Path('/tmp/i3_hide_time')
+i3_zen_bar_fn = Path('/tmp/i3_zen_bar')
 
 if args.toggle:
-    if i3_hide_time_fn.exists():
-        i3_hide_time_fn.unlink()
+    if i3_zen_bar_fn.exists():
+        i3_zen_bar_fn.unlink()
     else:
-        i3_hide_time_fn.touch()
+        i3_zen_bar_fn.touch()
 
 i3 = i3ipc.Connection()
 num_scratchpad = len(i3.get_tree().scratchpad().leaves())
@@ -26,19 +26,27 @@ num_scratchpad = len(i3.get_tree().scratchpad().leaves())
 if num_scratchpad > 0:
     print('📝', num_scratchpad, end=' | ')
 
-cpu_usage = calculate_cpu_usage()
-print('🔲', cpu_usage, end='% | ')
-
-if i3_hide_time_fn.exists():
+if i3_zen_bar_fn.exists():
     str_fr_time = '🗓️ %F'
 else:
     str_fr_time = '🗓️ %F | 🕒 %R'
 
-mem_usage, total, used, available = calculate_memory_usage()
-# used_gb = used / 1024 / 1024
-# total_gb = total / 1024 / 1024
-usage_str = str(int(round(mem_usage))).rjust(2)
-# print(f'💾 {used_gb:.1f}/{total_gb:.1f} ({usage_str}%)', end=' | ')
-print(f'💾 {usage_str}%', end=' | ')
+    cpu_usage = calculate_cpu_usage()
+    print('🔲', cpu_usage, end=' ')
+
+    mem_usage, total, used, available = calculate_memory_usage()
+    # used_gb = used / 1024 / 1024
+    # total_gb = total / 1024 / 1024
+    usage_str = str(int(round(mem_usage))).rjust(2)
+    # print(f'💾 {used_gb:.1f}/{total_gb:.1f} ({usage_str}%)', end=' | ')
+    # print(f'💾 {usage_str}%', end=' | ')
+    print(f'[{usage_str}]', end=' | ')
+
+    gpu_data = get_gpu_info()
+    if gpu_data:
+        usage_str = str(int(round(float(gpu_data['usage'])))).rjust(2)
+        memory_str = str(int(round(gpu_data['memory_percentage']))).rjust(2)
+        # print(f'🖼️ {usage_str}% | 💾 {memory_str}%', end=' | ')
+        print(f'🖼️ {usage_str} [{memory_str}]', end=' | ')
 
 print(datetime.datetime.now().strftime(str_fr_time), end=' | ')
