@@ -29,7 +29,7 @@ def calculate_cpu_usage():
     # Calculate CPU usage percentage
     cpu_usage = 100 * ( (total_delta - idle_delta) / total_delta )
     # integer with 3 digits always with leading spaces like '  5'
-    return str(int(round(cpu_usage))).rjust(2)
+    return cpu_usage
 
 def get_memory_info():
     meminfo = {}
