@@ -36,6 +36,8 @@ workspace_layout tabbed
 
 for_window [class=".*"] border pixel 6
 
+# Disable resize hints (min/max size) so that windows can be resized arbitrarily
+for_window [class=".*"] resizehints off
 
 # Run picom
 exec --no-startup-id picom --backend glx --vsync --use-damage -b
