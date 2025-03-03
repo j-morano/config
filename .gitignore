@@ -29,4 +29,5 @@ fish/functions/**
 !Commands/**
 !*/
 !yazi/**
+!picom/**
 __pycache__/
