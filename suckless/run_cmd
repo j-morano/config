@@ -1,0 +1,50 @@
+#!/usr/bin/bash
+
+case $1 in
+    volume_up)
+        pactl set-sink-volume @DEFAULT_SINK@ +2%
+        ;;
+    volume_down)
+        pactl set-sink-volume @DEFAULT_SINK@ -2%
+        ;;
+    volume_mute)
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        ;;
+    mic_mute)
+        pactl set-source-mute @DEFAULT_SOURCE@ toggle
+        ;;
+    launcher)
+        j4-dmenu-desktop --dmenu "dmenu -i -fn 'Fira Code-14'"
+        ;;
+    web_browser)
+        brave --new-window
+        ;;
+    file_manager)
+        if [ -d "/run/media/morano/SW1000/" ]
+        then
+            nautilus --new-window /run/media/$USERNAME/SW1000/
+        else
+            nautilus --new-window $HOME
+        fi
+        ;;
+    terminal_file_manager)
+        if [ -d "/run/media/morano/SW1000/" ]
+        then
+            wezterm start --always-new-process -e yazi /run/media/$USERNAME/SW1000/
+        else
+            wezterm start --always-new-process -e yazi $HOME
+        fi
+        ;;
+    date)
+        notify-send -t 2000 "$(date)"
+        ;;
+    terminal)
+        wezterm start --always-new-process
+        ;;
+    lock)
+        i3lock -c 333333
+        ;;
+    reset_kb_settings)
+        xset r rate 200 40
+        ;;
+esac

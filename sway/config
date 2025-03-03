@@ -51,7 +51,7 @@ bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output eDP-1 scale 1.2
+output eDP-1 scale 1.25
 # NOTE: swaybg has to be installed for this
 output * bg ~/Pictures/cmon.jpg fill
 

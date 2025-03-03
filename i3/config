@@ -40,7 +40,7 @@ for_window [class=".*"] border pixel 6
 for_window [class=".*"] resizehints off
 
 # Run picom
-exec --no-startup-id picom --backend glx --vsync --use-damage -b
+exec --no-startup-id picom -b
 # Keyboard repeat key speed
 exec --no-startup-id $run_cmd reset_kb_settings
 # exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
