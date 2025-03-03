@@ -37,6 +37,8 @@ workspace_layout tabbed
 for_window [class=".*"] border pixel 6
 
 
+# Picom
+exec --no-startup-id picom --backend glx --vsync --use-damage -b
 # Keyboard repeat key speed
 exec --no-startup-id $run_cmd reset_kb_settings
 # exec --no-startup-id ~/.config/Scripts/safe_eyes.sh
