@@ -33,10 +33,10 @@ if status --is-interactive
     abbr --add -g sint xrandr \
         --output eDP-1 --primary --mode 1920x1080 --rotate normal --pos 1920x0 \
         --rate 60 \
-        --output HDMI-1-0 --off
+        --output HDMI-1-1 --off
     abbr --add -g sext xrandr \
         --output eDP-1 --primary --mode 1920x1080 --rotate normal --pos 1920x0 \
         --rate 60 \
-        --output HDMI-1-0 --mode 1920x1080 --rotate normal --pos 0x0 \
+        --output HDMI-1-1 --mode 1920x1080 --rotate normal --pos 0x0 \
         --rate 60
 end
