@@ -31,7 +31,7 @@ xkb_symbols "basic" {
     key <AE04>	{ [         4,     dollar,   asciitilde,       dollar ]	};
     key <AE06>	{ [         6,  ampersand,      notsign,  fiveeighths ]	};
     key <AE11>	{ [apostrophe,   question,    dead_grave, questiondown ]	};
-    key <AE12>	{ [backslash,   backslash, questiondown,   asciitilde ]	};
+    key <AE12>	{ [plus, asterisk,    questiondown,   asciitilde ]	};
 
     key <AD11>	{ [bracketleft, braceleft, dead_circumflex, dead_abovering ] };
     key <AD12>	{ [      bracketright,  braceright, asterisk, plus ]	};
@@ -47,7 +47,7 @@ xkb_symbols "basic" {
     include "shift(lshift_both_capslock)"
     include "shift(rshift_both_capslock)"
 
-    key <BKSL>	{ [ plus, asterisk,    braceright,   dead_breve ]	};
+    key <BKSL>	{ [ backslash,   backslash, braceright,   dead_breve ]	};
 
     include "level3(ralt_switch)"
 };
