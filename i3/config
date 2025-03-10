@@ -212,7 +212,7 @@ bindsym XF86AudioMute exec --no-startup-id $run_cmd volume_mute
 bindsym XF86AudioMicMute exec --no-startup-id $run_cmd mic_mute
 # Volume custom shortcuts
 bindsym $mod+minus exec --no-startup-id $run_cmd volume_down
-bindsym $mod+plus exec --no-startup-id $run_cmd volume_up
+bindsym $mod+$alt+minus exec --no-startup-id $run_cmd volume_up
 
 #
 # Layout stuff:
@@ -290,7 +290,7 @@ bindsym $mod+$alt+q exec --no-startup-id $run_cmd lock
 bindsym $mod+$alt+bracketleft exec --no-startup-id $run_cmd terminal_file_manager
 bindsym $mod+bracketleft exec --no-startup-id $run_cmd file_manager
 # Web browser
-bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
+bindsym $mod+plus exec --no-startup-id $run_cmd web_browser
 
 bindsym $mod+y exec --no-startup-id $run_cmd reset_kb_settings
 
