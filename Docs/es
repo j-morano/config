@@ -37,7 +37,7 @@ xkb_symbols "basic" {
     key <AD12>	{ [      bracketright,  braceright, asterisk, plus ]	};
 
     key <AC10>	{ [    ntilde, colon,  Ntilde,   asciitilde ]	};
-    key <AC11>	{ [dead_acute, dead_diaeresis, braceleft,   braceleft ]	};
+    key <AC11>	{ [dead_acute, apostrophe, dead_diaeresis,   braceleft ]	};
     // key <TLDE>	{ [ masculine, ordfeminine,    backslash,   backslash ]	};
     key <TLDE>	{ [ Escape, masculine,    backslash,   backslash ]	};
     // super (in symbols/capslock)
