@@ -20,17 +20,17 @@ case $1 in
         brave --new-window
         ;;
     file_manager)
-        if [ -d "/run/media/morano/SW1000/" ]
+        if [ -d "/home/morano/SW/" ]
         then
-            nautilus --new-window /run/media/$USERNAME/SW1000/
+            nautilus --new-window /home/morano/SW/
         else
             nautilus --new-window $HOME
         fi
         ;;
     terminal_file_manager)
-        if [ -d "/run/media/morano/SW1000/" ]
+        if [ -d "/home/morano/SW/" ]
         then
-            wezterm start --always-new-process -e yazi /run/media/$USERNAME/SW1000/
+            wezterm start --always-new-process -e yazi /home/morano/SW/
         else
             wezterm start --always-new-process -e yazi $HOME
         fi

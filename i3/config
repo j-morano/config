@@ -23,7 +23,7 @@ set $right l
 set $run_cmd $HOME/.config/suckless/run_cmd
 
 gaps inner 8
-# smart_gaps on
+smart_gaps on
 
 default_border pixel 6
 default_floating_border pixel 6
@@ -48,7 +48,7 @@ exec --no-startup-id /usr/bin/insync start
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/dunst
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/cmon.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/vat.jpg
 exec --no-startup-id --no-startup-id xrandr \
     --output HDMI-1 --primary --mode 2560x1440 --rotate normal --pos 1440x0 \
     --rate 75 \
