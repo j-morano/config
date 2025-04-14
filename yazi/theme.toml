@@ -9,3 +9,4 @@ progress_select = { fg = "white", bg = "red", bold = true }
 
 [which]
 mask = { fg = "black", bg = "white" }
+cols = 2
