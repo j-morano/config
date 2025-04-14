@@ -17,6 +17,9 @@ case $1 in
         j4-dmenu-desktop --dmenu "dmenu -i -fn 'Fira Code-14'"
         ;;
     web_browser)
+        librewolf --new-window
+        ;;
+    alt_web_browser)
         brave --new-window
         ;;
     file_manager)

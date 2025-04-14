@@ -2,3 +2,10 @@
 normal_main = { fg = "white", bg = "blue", bold = true }
 select_main = { fg = "white", bg = "red", bold = true }
 unset_main = { fg = "white", bg = "green", bold = true }
+
+[status]
+progress_normal = { fg = "white", bg = "blue", bold = true }
+progress_select = { fg = "white", bg = "red", bold = true }
+
+[which]
+mask = { fg = "black", bg = "white" }

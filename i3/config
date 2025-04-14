@@ -293,6 +293,7 @@ bindsym $mod+$alt+bracketleft exec --no-startup-id $run_cmd terminal_file_manage
 bindsym $mod+bracketleft exec --no-startup-id $run_cmd file_manager
 # Web browser
 bindsym $mod+dead_acute exec --no-startup-id $run_cmd web_browser
+bindsym $mod+$alt+dead_acute exec --no-startup-id $run_cmd alt_web_browser
 
 bindsym $mod+y exec --no-startup-id $run_cmd reset_kb_settings
 
