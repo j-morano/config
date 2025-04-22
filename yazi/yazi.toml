@@ -11,4 +11,5 @@ prepend_rules = [
     { name = "*.nii.gz", use = [ "volume-view", "reveal" ] },
     { name = "*.npy", use = [ "volume-view", "reveal" ] },
     { name = "*.npz", use = [ "volume-view", "reveal" ] },
+    { name = "*.dcm", use = [ "volume-view", "reveal" ] },
 ]
