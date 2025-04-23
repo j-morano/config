@@ -17,3 +17,10 @@ function Linemode:size_and_mtime()
     return string.format("%s %s", size, time)
   end
 end
+
+
+-- Cross-instance yank ability plugin
+-- https://yazi-rs.github.io/docs/dds#session.lua
+require("session"):setup {
+  sync_yanked = true,
+}
