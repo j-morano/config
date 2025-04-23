@@ -1,5 +1,7 @@
 [manager]
 linemode = "size_and_mtime"
+sort_by = "natural"
+sort_sensitive = false
 
 [opener]
 volume-view = [
