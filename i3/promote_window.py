@@ -13,6 +13,9 @@ This script has different modes:
         Otherwise, focuses the window above the focused window.
     - "next-container": focuses the next first-level container.
     - "prev-container": focuses the previous first-level container.
+    - "prev-workspace": focuses the previous workspace in the same
+        output. The previous workspace is the one that was last
+        focused. See the "trace.py" script for more information.
 
 Copyright: 2023 José Morano
 License: MIT
@@ -22,9 +25,12 @@ Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
 
 import sys
 # import os
+import json
 
 from i3ipc import Connection, Con
 
+
+SOCKET_FILE_WOR = '/tmp/i3-wor.json'
 
 
 def find_master(container, mark):
@@ -56,6 +62,12 @@ assert focused is not None
 workspace = focused.workspace()
 assert isinstance(workspace, Con)
 layout = focused.parent.layout
+workspaces = i3.get_workspaces()
+output = None
+for w in workspaces:
+    if w.name == workspace.name:
+        output = w.output
+        break
 
 
 if option == 'next' or option == 'prev':
@@ -105,6 +117,15 @@ elif option == 'next-container' or option == 'prev-container':
         #  is the container that would be focused if this container
         #  recieves focus.
         i3.command(f"[con_id=\"{container.focus[0]}\"] focus")
+elif option == 'prev-workspace':
+    # os.system("notify-send 'prev-workspace'")
+    with open(SOCKET_FILE_WOR, 'r') as f:
+        data = json.load(f)
+    for w_id, w_name, w_out in data:
+        if w_id != workspace.id and w_out == output:
+            # os.system(f"notify-send '{w_id} {w_name} {w_out}'")
+            i3.command(f"workspace \"{w_name}\"")
+            exit(0)
 else:
     prev_mark = workspace.name  # type: ignore
     master, focused, previous = find_master(workspace, prev_mark)
