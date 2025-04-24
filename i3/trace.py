@@ -34,11 +34,11 @@ def print_con_info(con):
 
 
 def on_window(i3, e):
-    print_separator()
-    print('Got window event:')
-    print_time()
-    print('Change: %s' % e.change)
-    print_con_info(e.container)
+    # print_separator()
+    # print('Got window event:')
+    # print_time()
+    # print('Change: %s' % e.change)
+    # print_con_info(e.container)
     with open(SOCKET_FILE_WIN, 'r') as f:
         data = json.load(f)
     if e.change == 'focus':
@@ -55,14 +55,14 @@ def on_window(i3, e):
 
 
 def on_workspace(i3, e):
-    print_separator()
-    print('Got workspace event:')
-    print_time()
-    print('Change: %s' % e.change)
-    print('Current:')
-    print_con_info(e.current)
-    print('Old:')
-    print_con_info(e.old)
+    # print_separator()
+    # print('Got workspace event:')
+    # print_time()
+    # print('Change: %s' % e.change)
+    # print('Current:')
+    # print_con_info(e.current)
+    # print('Old:')
+    # print_con_info(e.old)
     with open(SOCKET_FILE_WOR, 'r') as f:
         data = json.load(f)
     if e.change == 'focus':
