@@ -54,7 +54,7 @@ exec --no-startup-id --no-startup-id xrandr \
     --rate 75 \
     --output HDMI-0 --mode 2560x1440 --rotate right --pos 0x0 \
     --rate 60
-exec --no-startup-id "~/.config/i3/trace.py"
+exec_always --no-startup-id "~/.config/i3/trace.py"
 
 
 # Promote window
@@ -64,7 +64,8 @@ bindsym $mod+j exec --no-startup-id "~/.config/i3/promote_window.py next"
 bindsym $mod+k exec --no-startup-id "~/.config/i3/promote_window.py prev"
 bindsym $mod+l exec --no-startup-id "~/.config/i3/promote_window.py next-container"
 bindsym $mod+ntilde exec --no-startup-id "~/.config/i3/promote_window.py prev-container"
-bindsym $mod+space exec --no-startup-id "~/.config/i3/promote_window.py prev-workspace"
+bindsym $mod+space exec --no-startup-id "~/.config/i3/promote_window.py last-workspace"
+bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last-window"
 
 ### Output configuration
 #

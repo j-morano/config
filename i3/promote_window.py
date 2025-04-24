@@ -31,6 +31,7 @@ from i3ipc import Connection, Con
 
 
 SOCKET_FILE_WOR = '/tmp/i3-wor.json'
+SOCKET_FILE_WIN = '/tmp/i3-win.json'
 
 
 def find_master(container, mark):
@@ -117,15 +118,17 @@ elif option == 'next-container' or option == 'prev-container':
         #  is the container that would be focused if this container
         #  recieves focus.
         i3.command(f"[con_id=\"{container.focus[0]}\"] focus")
-elif option == 'prev-workspace':
+elif option == 'last-workspace':
     # os.system("notify-send 'prev-workspace'")
     with open(SOCKET_FILE_WOR, 'r') as f:
         data = json.load(f)
-    for w_id, w_name, w_out in data:
-        if w_id != workspace.id and w_out == output:
-            # os.system(f"notify-send '{w_id} {w_name} {w_out}'")
-            i3.command(f"workspace \"{w_name}\"")
-            exit(0)
+    w_id, w_name = data[output]
+    i3.command(f"workspace \"{w_name}\"")
+elif option == 'last-window':
+    with open(SOCKET_FILE_WIN, 'r') as f:
+        data = json.load(f)
+    if len(data) > 1:
+        i3.command(f"[con_id=\"{data[1]}\"] focus")
 else:
     prev_mark = workspace.name  # type: ignore
     master, focused, previous = find_master(workspace, prev_mark)
