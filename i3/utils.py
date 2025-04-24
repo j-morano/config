@@ -3,12 +3,17 @@ import subprocess
 import re
 
 
+SOCKET_FILE_WIN = '/tmp/i3-win.json'
+SOCKET_FILE_WOR = '/tmp/i3-wor.json'
+MAX_WIN_HISTORY = 2
+
 
 def get_cpu_times():
     with open('/proc/stat', 'r') as f:
         line = f.readline()
     fields = line.strip().split()[1:]
     return list(map(int, fields))
+
 
 def calculate_cpu_usage():
     # Get first snapshot
@@ -31,6 +36,7 @@ def calculate_cpu_usage():
     # integer with 3 digits always with leading spaces like '  5'
     return cpu_usage
 
+
 def get_memory_info():
     meminfo = {}
     with open('/proc/meminfo', 'r') as f:
@@ -40,6 +46,7 @@ def get_memory_info():
             value = int(parts[1].strip().split()[0])  # Get value in kB
             meminfo[key] = value
     return meminfo
+
 
 def calculate_memory_usage():
     meminfo = get_memory_info()

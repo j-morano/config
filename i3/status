@@ -3,9 +3,11 @@
 import datetime
 from pathlib import Path
 import argparse
-from utils import calculate_cpu_usage, calculate_memory_usage, get_gpu_info
 
 import i3ipc
+
+from utils import calculate_cpu_usage, calculate_memory_usage, get_gpu_info
+
 
 
 parser = argparse.ArgumentParser()

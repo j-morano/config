@@ -30,8 +30,7 @@ import json
 from i3ipc import Connection, Con
 
 
-SOCKET_FILE_WOR = '/tmp/i3-wor.json'
-SOCKET_FILE_WIN = '/tmp/i3-win.json'
+from utils import SOCKET_FILE_WIN, SOCKET_FILE_WOR
 
 
 def find_master(container, mark):

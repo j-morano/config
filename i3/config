@@ -54,8 +54,9 @@ exec --no-startup-id --no-startup-id xrandr \
     --rate 75 \
     --output HDMI-0 --mode 2560x1440 --rotate right --pos 0x0 \
     --rate 60
-exec_always --no-startup-id "~/.config/i3/trace.py"
 
+# Script to trace workspace and window changes, used in promote_window.py
+exec --no-startup-id "~/.config/i3/trace.py"
 
 # Promote window
 bindsym $mod+$alt+i exec --no-startup-id "~/.config/i3/promote_window.py promote"

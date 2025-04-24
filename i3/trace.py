@@ -5,11 +5,8 @@ import json
 
 import i3ipc
 
+from utils import SOCKET_FILE_WIN, SOCKET_FILE_WOR, MAX_WIN_HISTORY
 
-
-SOCKET_FILE_WIN = '/tmp/i3-win.json'
-SOCKET_FILE_WOR = '/tmp/i3-wor.json'
-MAX_WIN_HISTORY = 2
 
 
 with open(SOCKET_FILE_WIN, 'w') as f:
