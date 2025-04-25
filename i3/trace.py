@@ -1,32 +1,33 @@
 #!/usr/bin/env python3
 
 import json
-# import os
+import os
 
 import i3ipc
 
-from utils import SOCKET_FILE_WIN, SOCKET_FILE_WOR, MAX_WIN_HISTORY
+from utils import SOCKET_FILE_WOR, SOCKET_FILE_WIN, MAX_HISTORY
 
 
+def init_win_file():
+    with open(SOCKET_FILE_WIN, 'w') as f:
+        json.dump([], f)
 
-with open(SOCKET_FILE_WIN, 'w') as f:
-    json.dump([], f)
-with open(SOCKET_FILE_WOR, 'w') as f:
-    json.dump({}, f)
 
-i3 = i3ipc.Connection()
-workspaces = i3.get_workspaces()
-
+def init_wor_file():
+    with open(SOCKET_FILE_WOR, 'w') as f:
+        json.dump({}, f)
 
 
 def on_window(i3, e):
+    if not os.path.exists(SOCKET_FILE_WIN):
+        init_win_file()
     with open(SOCKET_FILE_WIN, 'r') as f:
         data = json.load(f)
     if e.change == 'focus':
         if e.container.id in data:
             data.remove(e.container.id)
         data.insert(0, e.container.id)
-        if len(data) > MAX_WIN_HISTORY:
+        if len(data) > MAX_HISTORY:
             data.pop()
     if e.change == 'close':
         try:
@@ -38,6 +39,8 @@ def on_window(i3, e):
 
 
 def on_workspace(i3, e):
+    if not os.path.exists(SOCKET_FILE_WOR):
+        init_wor_file()
     with open(SOCKET_FILE_WOR, 'r') as f:
         data = json.load(f)
     if e.change == 'focus':
@@ -51,18 +54,28 @@ def on_workspace(i3, e):
         # os.system(f'notify-send "current:{output}, old:{old_output}"')
         if output is None:
             output = old_output
-        if ((old_output != output)
-            and (None not in [output, old_output])
-        ):
-            # Scratchpad or empty workspaces
+        elif old_output is None:
+            old_output = output
+        if old_output == output:
+            if old_output not in data:
+                data[old_output] = []
+            data[old_output].insert(0, [e.old.id, e.old.name])
+            if len(data[old_output]) > MAX_HISTORY:
+                data[old_output].pop()
+        else:
             return
-        data[output] = [e.old.id, e.old.name]
     with open(SOCKET_FILE_WOR, 'w') as f:
         json.dump(data, f)
 
 
+if __name__ == '__main__':
+    i3 = i3ipc.Connection()
+    workspaces = i3.get_workspaces()
 
-i3.on('window', on_window)
-i3.on('workspace', on_workspace)
+    init_win_file()
+    init_wor_file()
 
-i3.main()
+    i3.on('window', on_window)
+    i3.on('workspace', on_workspace)
+
+    i3.main()

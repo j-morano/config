@@ -121,8 +121,10 @@ elif option == 'last-workspace':
     # os.system("notify-send 'prev-workspace'")
     with open(SOCKET_FILE_WOR, 'r') as f:
         data = json.load(f)
-    w_id, w_name = data[output]
-    i3.command(f"workspace \"{w_name}\"")
+    for w_id, w_name in data[output]:
+        if w_name != workspace.name:
+            i3.command(f"workspace \"{w_name}\"")
+            exit(0)
 elif option == 'last-window':
     with open(SOCKET_FILE_WIN, 'r') as f:
         data = json.load(f)

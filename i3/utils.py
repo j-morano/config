@@ -5,7 +5,7 @@ import re
 
 SOCKET_FILE_WIN = '/tmp/i3-win.json'
 SOCKET_FILE_WOR = '/tmp/i3-wor.json'
-MAX_WIN_HISTORY = 2
+MAX_HISTORY = 8
 
 
 def get_cpu_times():
