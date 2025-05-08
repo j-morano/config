@@ -46,7 +46,7 @@ def on_workspace(i3, e):
     if e.change == 'focus':
         output = None
         old_output = None
-        for w in workspaces:
+        for w in i3.get_workspaces():
             if w.name == e.current.name:
                 output = w.output
             elif w.name == e.old.name:
@@ -70,7 +70,6 @@ def on_workspace(i3, e):
 
 if __name__ == '__main__':
     i3 = i3ipc.Connection()
-    workspaces = i3.get_workspaces()
 
     init_win_file()
     init_wor_file()
