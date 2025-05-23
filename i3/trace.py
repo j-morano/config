@@ -46,6 +46,8 @@ def on_workspace(i3, e):
     if e.change == 'focus':
         output = None
         old_output = None
+        if e.current.name.startswith('__') or e.old.name.startswith('__'):
+            return
         for w in i3.get_workspaces():
             if w.name == e.current.name:
                 output = w.output
