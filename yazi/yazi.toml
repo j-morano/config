@@ -7,6 +7,9 @@ sort_sensitive = false
 volume-view = [
     { run = '/home/morano/Programs/volume-viewer/venv/bin/python /home/morano/Programs/volume-viewer/volume_viewer.py "$@"', orphan = true, for = "unix" },
 ]
+edit = [
+    { run = 'nohup wezterm start --always-new-process -- $EDITOR "$@" </dev/null >/dev/null 2>&1 & disown', block = true, for = "unix" },
+]
 
 [open]
 prepend_rules = [
