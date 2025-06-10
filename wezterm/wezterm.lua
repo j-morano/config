@@ -313,6 +313,7 @@ return {
     { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
     -- CTRL-SHIFT-SPACE enables copy mode
     { key = ' ', mods = 'CTRL', action = wezterm.action.ActivateCopyMode },
+    { key = 'Backspace', mods = 'CTRL', action = wezterm.action.SendKey {key = 'w', mods = 'CTRL'} },
   },
   -- color_schemes = {
   --   -- Override the builtin Gruvbox Light scheme with our modification.
