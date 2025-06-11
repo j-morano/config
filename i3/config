@@ -136,7 +136,7 @@ bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last-window"
 #
 # Workspaces:
 #
-    workspace "14:," output HDMI-0
+    workspace "15::" output HDMI-0
 
     set $1 "1:1"
     set $2 "2:2"
