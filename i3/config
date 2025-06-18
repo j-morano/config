@@ -171,7 +171,7 @@ bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last-window"
     bindsym $mod+m workspace $m
     bindsym $mod+comma workspace $c
     bindsym $mod+period workspace $p
-    # bindsym $mod+x workspace $x
+    bindsym $mod+x workspace $x
     bindsym $mod+g workspace $g
     bindsym $mod+u workspace $u
     # Move focused container to workspace
@@ -189,7 +189,7 @@ bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last-window"
     bindsym $mod+$alt+m move container to workspace $m
     bindsym $mod+$alt+comma move container to workspace $c
     bindsym $mod+$alt+period move container to workspace $p
-    # bindsym $mod+$alt+x move container to workspace $x
+    bindsym $mod+$alt+x move container to workspace $x
     bindsym $mod+$alt+g move container to workspace $g
     bindsym $mod+$alt+u move container to workspace $u
     # Note: workspaces can have any name you want, not just numbers.
@@ -253,12 +253,12 @@ bindsym $mod+plus exec --no-startup-id $run_cmd volume_up
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+$alt+d mark scratchpad_d, move scratchpad
-    bindsym $mod+$alt+x mark scratchpad_x, move scratchpad
+    # bindsym $mod+$alt+x mark scratchpad_x, move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+d [con_mark="scratchpad_d"] scratchpad show
-    bindsym $mod+x [con_mark="scratchpad_x"] scratchpad show
+    # bindsym $mod+x [con_mark="scratchpad_x"] scratchpad show
 #
 # Resizing containers:
 #
