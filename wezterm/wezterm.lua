@@ -330,6 +330,7 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   tab_bar_at_bottom = true,
   -- Disable ligatures
+  enable_wayland = false,
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   front_end = 'OpenGL',
   freetype_load_target = 'Light',
