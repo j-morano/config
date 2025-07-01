@@ -21,6 +21,7 @@ set $right l
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $run_cmd $HOME/.config/suckless/run_cmd
+set $to_workspace $HOME/.config/i3/to_workspace.py
 
 gaps inner 8
 smart_gaps on
@@ -136,62 +137,80 @@ bindsym $mod+p exec --no-startup-id "~/.config/i3/promote_window.py last-window"
 #
 # Workspaces:
 #
-    workspace "15::" output HDMI-0
+    workspace "0:1" output HDMI-0
+    workspace "1:1" output HDMI-1
 
+    # Main screen
     set $1 "1:1"
-    set $2 "2:2"
-    set $3 "3:3"
-    set $4 "4:4"
-    set $5 "5:5"
-    set $6 "6:6"
-    set $7 "7:7"
-    set $8 "8:8"
-    set $9 "9:9"
-    set $0 "10:0"
-    set $x "11:x"
-    set $n "12:n"
-    set $m "13:m"
-    set $c "14:,"
-    set $p "15::"
-    set $g "16:g"
-    set $u "17:u"
+    set $2 "1:2"
+    set $3 "1:3"
+    set $4 "1:4"
+    set $5 "1:5"
+    set $6 "1:6"
+    set $7 "1:7"
+    set $8 "1:8"
+    set $9 "1:9"
+    set $0 "1:0"
+    set $x "1:x"
+    set $n "1:n"
+    set $m "1:m"
+    set $g "1:g"
+    set $u "1:u"
+    # set $c "1:,"
+    # set $p "1::"
+    # Complementary screen
+    set $1 "0:1"
+    set $2 "0:2"
+    set $3 "0:3"
+    set $4 "0:4"
+    set $5 "0:5"
+    set $6 "0:6"
+    set $7 "0:7"
+    set $8 "0:8"
+    set $9 "0:9"
+    set $0 "0:0"
+    set $x "0:x"
+    set $n "0:n"
+    set $m "0:m"
+    set $g "0:g"
+    set $u "0:u"
 
     # Switch to workspace
-    bindsym $mod+1 workspace $1
-    bindsym $mod+2 workspace $2
-    bindsym $mod+3 workspace $3
-    bindsym $mod+4 workspace $4
-    bindsym $mod+5 workspace $5
-    bindsym $mod+6 workspace $6
-    bindsym $mod+7 workspace $7
-    bindsym $mod+8 workspace $8
-    bindsym $mod+9 workspace $9
-    bindsym $mod+0 workspace $0
-    bindsym $mod+n workspace $n
-    bindsym $mod+m workspace $m
-    bindsym $mod+comma workspace $c
-    bindsym $mod+period workspace $p
-    bindsym $mod+x workspace $x
-    bindsym $mod+g workspace $g
-    bindsym $mod+u workspace $u
+    bindsym $mod+1 exec --no-startup-id $to_workspace to 1
+    bindsym $mod+2 exec --no-startup-id $to_workspace to 2
+    bindsym $mod+3 exec --no-startup-id $to_workspace to 3
+    bindsym $mod+4 exec --no-startup-id $to_workspace to 4
+    bindsym $mod+5 exec --no-startup-id $to_workspace to 5
+    bindsym $mod+6 exec --no-startup-id $to_workspace to 6
+    bindsym $mod+7 exec --no-startup-id $to_workspace to 7
+    bindsym $mod+8 exec --no-startup-id $to_workspace to 8
+    bindsym $mod+9 exec --no-startup-id $to_workspace to 9
+    bindsym $mod+0 exec --no-startup-id $to_workspace to 0
+    bindsym $mod+x exec --no-startup-id $to_workspace to x
+    bindsym $mod+n exec --no-startup-id $to_workspace to n
+    bindsym $mod+m exec --no-startup-id $to_workspace to m
+    bindsym $mod+g exec --no-startup-id $to_workspace to g
+    bindsym $mod+u exec --no-startup-id $to_workspace to u
+    # bindsym $mod+comma workspace $c
+    # bindsym $mod+period workspace $p
     # Move focused container to workspace
-    bindsym $mod+$alt+1 move container to workspace $1
-    bindsym $mod+$alt+2 move container to workspace $2
-    bindsym $mod+$alt+3 move container to workspace $3
-    bindsym $mod+$alt+4 move container to workspace $4
-    bindsym $mod+$alt+5 move container to workspace $5
-    bindsym $mod+$alt+6 move container to workspace $6
-    bindsym $mod+$alt+7 move container to workspace $7
-    bindsym $mod+$alt+8 move container to workspace $8
-    bindsym $mod+$alt+9 move container to workspace $9
-    bindsym $mod+$alt+0 move container to workspace $0
-    bindsym $mod+$alt+n move container to workspace $n
-    bindsym $mod+$alt+m move container to workspace $m
-    bindsym $mod+$alt+comma move container to workspace $c
-    bindsym $mod+$alt+period move container to workspace $p
-    bindsym $mod+$alt+x move container to workspace $x
-    bindsym $mod+$alt+g move container to workspace $g
-    bindsym $mod+$alt+u move container to workspace $u
+    bindsym $mod+$alt+1 exec --no-startup-id $to_workspace move 1
+    bindsym $mod+$alt+2 exec --no-startup-id $to_workspace move 2
+    bindsym $mod+$alt+3 exec --no-startup-id $to_workspace move 3
+    bindsym $mod+$alt+4 exec --no-startup-id $to_workspace move 4
+    bindsym $mod+$alt+5 exec --no-startup-id $to_workspace move 5
+    bindsym $mod+$alt+6 exec --no-startup-id $to_workspace move 6
+    bindsym $mod+$alt+7 exec --no-startup-id $to_workspace move 7
+    bindsym $mod+$alt+8 exec --no-startup-id $to_workspace move 8
+    bindsym $mod+$alt+9 exec --no-startup-id $to_workspace move 9
+    bindsym $mod+$alt+0 exec --no-startup-id $to_workspace move 0
+    bindsym $mod+$alt+x exec --no-startup-id $to_workspace move x
+    bindsym $mod+$alt+n exec --no-startup-id $to_workspace move n
+    bindsym $mod+$alt+m exec --no-startup-id $to_workspace move m
+    bindsym $mod+$alt+g exec --no-startup-id $to_workspace move g
+    bindsym $mod+$alt+u exec --no-startup-id $to_workspace move u
+    # bindsym $mod+$alt+comma move container to workspace $c
+    # bindsym $mod+$alt+period move container to workspace $p
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
